@@ -1,25 +1,12 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { Main } from './pages/Main';
-import { SignIn } from './pages/SignIn';
-import { SignUp } from './pages/SignUp';
-import GlobalStyle from './styles/GlobalStyle';
+import GlobalStyle from 'Styles/GlobalStyle';
+import { a } from 'Redux/1';
 
 function App() {
+  console.log(a);
   return (
     <>
       <GlobalStyle />
-      <Switch>
-        <Route path="/" exact>
-          <Main />
-        </Route>
-        <Route path="/signIn" exact>
-          <SignIn />
-        </Route>
-        <Route path="/signUp" exact>
-          <SignUp />
-        </Route>
-      </Switch>
     </>
   );
 }
