@@ -13,7 +13,17 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "baseUrl": "./src"
+    "baseUrl": ".",
+    "paths": {
+      "Styles*": ["src/styles*"],
+      "Stories*": ["src/stories*"],
+      "Modules*": ["src/modules*"],
+      "Pages*": ["src/pages*"],
+      "Hooks*": ["src/hooks*"],
+      "Elements*": ["src/elements*"],
+      "Components*": ["src/components*"],
+      "Apis*": ["src/apis*"]
+    }
   },
   "include": ["src"]
 }
