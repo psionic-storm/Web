@@ -12,6 +12,7 @@ const config = {
     alias: {
       Styles: path.resolve(__dirname, './src/styles'),
       Stories: path.resolve(__dirname, './src/stories'),
+      Routes: path.resolve(__dirname, './src/routes'),
       Modules: path.resolve(__dirname, './src/modules'),
       Pages: path.resolve(__dirname, './src/pages'),
       Hooks: path.resolve(__dirname, './src/hooks'),

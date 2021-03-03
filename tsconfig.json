@@ -17,6 +17,7 @@
     "paths": {
       "Styles*": ["src/styles*"],
       "Stories*": ["src/stories*"],
+      "Routes*": ["src/routes*"],
       "Modules*": ["src/modules*"],
       "Pages*": ["src/pages*"],
       "Hooks*": ["src/hooks*"],

@@ -6,7 +6,7 @@ if [ -z "$*" ]; then
 
 fi
 
-FOLDER="components"
+FOLDER="pages"
 FILE_NAME=$1
 FIRST_CAP="$(tr '[:lower:]' '[:upper:]' <<< ${FOLDER:0:1})${FOLDER:1}"
 APPEND=`echo "${FIRST_CAP%?}"`
