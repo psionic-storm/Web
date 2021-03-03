@@ -8,6 +8,8 @@ function AppRoutes() {
       <Route path="/" exact>
         <MainPage />
       </Route>
+      <Route path="/signUp"></Route>
+      <Route path="/signIn"></Route>
     </Switch>
   );
 }
