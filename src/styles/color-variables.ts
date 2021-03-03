@@ -1,12 +1,4 @@
-type Palette = {
-  WHITE: string;
-  BLACK: string;
-  MAIN: string;
-  FACEBOOK: string;
-  GRAY: string[];
-};
-
-const PALETTE: Palette = {
+const PALETTE = {
   WHITE: '#FFFFFF',
   BLACK: '#000000',
   MAIN: '#B80D57',
