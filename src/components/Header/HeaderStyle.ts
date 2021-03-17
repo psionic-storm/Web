@@ -9,7 +9,6 @@ export const Container = styled.div`
   background-color: ${PALETTE.WHITE};
   border-bottom: 2px solid ${PALETTE.GRAY[2]};
   height: 50px;
-  cursor: pointer;
   position: fixed;
   width: 100%;
 `;
@@ -21,7 +20,14 @@ export const Logo = styled.div`
   font-size: 20px;
 `;
 
+export const LogoAndSearchBarWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const SignInButton = styled(Button)`
   margin: 0 20px;
   padding: 7px 15px;
+  top: 0;
+  right: 0;
 `;
