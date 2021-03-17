@@ -3,7 +3,15 @@ const PALETTE = {
   BLACK: '#000000',
   MAIN: '#B80D57',
   FACEBOOK: '#1877F2',
-  GRAY: ['#E5E5E5', '#C9C9C9', '#7D7D7D', '#6E6E6E'],
+  GRAY: [
+    '#FAFAFA',
+    '#F2F2F2',
+    '#E0E0E0',
+    '#BDBDBD',
+    '#828282',
+    '#4F4F4F',
+    '#333333',
+  ],
 };
 
 export default PALETTE;

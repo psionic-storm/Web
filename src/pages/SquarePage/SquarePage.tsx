@@ -1,6 +1,6 @@
-import Header from 'Elements/Header/Header';
+import Header from 'Components/Header/Header';
 import React from 'react';
-import * as S from './MainPageStyle';
+import * as S from './SquarePageStyle';
 
 function MainPage() {
   return (

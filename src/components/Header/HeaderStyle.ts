@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import PALETTE from '../../styles/color-variables';
+import PALETTE from 'Styles/color-variables';
 import Button from 'Elements/Button/Button';
 
 export const Container = styled.div`

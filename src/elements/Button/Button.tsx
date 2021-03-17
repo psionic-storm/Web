@@ -8,8 +8,7 @@ export type ButtonProps = {
   onClick?: () => void;
 };
 
-const Button = (props: ButtonProps) => {
+function Button(props: ButtonProps) {
   return <S.Button {...props} />;
-};
-
+}
 export default Button;
