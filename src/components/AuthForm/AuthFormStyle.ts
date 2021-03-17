@@ -17,8 +17,10 @@ export const SignInButton = styled(Button)`
   background-color: ${PALETTE.BLACK};
   margin: 7px 0;
   border: none;
+  width: 100%;
 `;
 
 export const SocialSignInButton = styled(Button)`
   margin: 7px 0;
+  width: 100%;
 `;

@@ -7,7 +7,6 @@ export const Button = styled.button`
   background-color: ${PALETTE.WHITE};
   color: ${PALETTE.BLACK};
   border: 2px solid ${PALETTE.GRAY[3]};
-  width: 100%;
   padding: 14px;
   font-size: 16px;
   font-weight: bold;
