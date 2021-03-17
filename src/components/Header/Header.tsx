@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import HeaderBlock from 'Elements/HeaderBlock/HeaderBlock';
 import { Link, useLocation } from 'react-router-dom';
 import * as S from './HeaderStyle';

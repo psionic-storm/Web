@@ -1,4 +1,3 @@
-import InputForm from 'Elements/InputForm/InputForm';
 import styled from 'styled-components';
 import PALETTE from 'Styles/color-variables';
 
