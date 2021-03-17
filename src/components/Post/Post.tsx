@@ -16,6 +16,35 @@ function Post() {
           <S.CreatedDate>March 7, 2021</S.CreatedDate>
         </S.PostInfo>
       </S.PostHeader>
+      <S.Post>
+        <S.PostTitle>Hello! My name is Zaratustra, a crazy guy</S.PostTitle>
+        <S.PostContent>
+          Thunderbot and lightning very very frightening me Thunderbot and
+          lightning very very frightening me gggThunderbot and lightning very
+          very frightening me Thunderbot and lightning very very frightening me
+          Thunderbot and lightning very very frightening me Thunderbot and
+          lightning very very frightening me Thunderbot and lightning very very
+          frightening me Thunderbot and lightning very very frightening me
+          Thunderbot and lightning very very frightening me Thunderbot and
+          lightning very very frightening me Thunderbot and lightning very very
+          frightening me Thunderbot and lightning very very frightening me
+          Thunderbot and lightning very very frightening me Thunderbot and
+          lightning very very frightening me Thunderbot and lightning very very
+          frightening me Thunderbot and lightning very very frightening me
+          Thunderbot and lightning very very frightening me Thunderbot and
+          lightning very very frightening me Thunderbot and lightning very very
+          frightening me Thunderbot and lightning very very frightening me
+          Thunderbot and lightning very very frightening me Thunderbot and
+          lightning very very frightening me Thunderbot and lightning very very
+          frightening me Thunderbot and lightning very very frightening me
+          Thunderbot and lightning very very frightening me Thunderbot and
+          lightning very very frightening me Thunderbot and lightning very very
+          frightening me Thunderbot and lightning very very frightening me
+          Thunderbot and lightning very very frightening me Thunderbot and
+          lightning very very frightening me Thunderbot and lightning very very
+          frightening me Thunderbot and lightning very very frightening me{' '}
+        </S.PostContent>
+      </S.Post>
     </S.Container>
   );
 }

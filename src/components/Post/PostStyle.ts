@@ -48,3 +48,18 @@ export const CreatedDate = styled.div`
   font-size: 14px;
   margin-top: 4px;
 `;
+
+export const Post = styled.div`
+  padding: 6px;
+`;
+export const PostTitle = styled.div`
+  font-size: 16px;
+  font-weight: bold;
+  /* margin-top: 4px; */
+`;
+export const PostContent = styled.div`
+  color: ${PALETTE.GRAY[5]};
+  font-size: 16px;
+  margin-top: 6px;
+  line-height: 22px;
+`;
