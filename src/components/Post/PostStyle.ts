@@ -3,7 +3,7 @@ import PALETTE from 'Styles/color-variables';
 
 export const Container = styled.div`
   width: 800px;
-  border: 2px solid ${PALETTE.GRAY[3]};
+  border: 2px solid ${PALETTE.GRAY[2]};
   border-radius: 10px;
   margin: 5px 0;
   padding: 20px;
@@ -28,6 +28,7 @@ export const WriterName = styled.div`
   border-right: 2px solid ${PALETTE.GRAY[3]};
   font-weight: bold;
   font-size: 16px;
+  cursor: pointer;
 `;
 
 export const SalonOrSpaceName = styled.div`
@@ -35,12 +36,14 @@ export const SalonOrSpaceName = styled.div`
   border-right: 2px solid ${PALETTE.GRAY[3]};
   color: ${PALETTE.GRAY[5]};
   font-size: 14px;
+  cursor: pointer;
 `;
 
 export const BookTitle = styled.div`
   padding: 0 8px;
   color: ${PALETTE.GRAY[5]};
   font-size: 14px;
+  cursor: pointer;
 `;
 
 export const CreatedDate = styled.div`
@@ -55,7 +58,6 @@ export const Post = styled.div`
 export const PostTitle = styled.div`
   font-size: 16px;
   font-weight: bold;
-  /* margin-top: 4px; */
 `;
 export const PostContent = styled.div`
   color: ${PALETTE.GRAY[5]};
