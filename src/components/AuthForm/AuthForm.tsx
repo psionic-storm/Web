@@ -14,7 +14,9 @@ function AuthForm({ authType }: AuthFormProps) {
       <S.SocialSignInButton>{`${authType} With`}</S.SocialSignInButton>
       <S.SocialSignInButton>{`${authType} With`}</S.SocialSignInButton>
       {authType === 'Sign In' && (
-        <S.LinkButton to="/signIn">Create An Account</S.LinkButton>
+        <S.LinkButtonWrapper>
+          <S.LinkButton to="/signUp">Create An Account</S.LinkButton>
+        </S.LinkButtonWrapper>
       )}
     </S.Container>
   );

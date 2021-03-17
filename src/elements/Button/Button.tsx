@@ -7,15 +7,17 @@ interface ButtonProps {
   to?: any;
 }
 
-function Button({ to, children }: ButtonProps) {
+function Button(props: ButtonProps) {
+  const { to } = props;
+
   return (
     <>
       {to ? (
         <Link to={to}>
-          <S.Button>{children}</S.Button>
+          <S.Button {...props} />
         </Link>
       ) : (
-        <S.Button>{children}</S.Button>
+        <S.Button {...props} />
       )}
     </>
   );
