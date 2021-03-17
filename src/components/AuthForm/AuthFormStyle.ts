@@ -8,6 +8,7 @@ export const Container = styled.div`
   border-radius: 10px;
   width: 480px;
   padding: 70px;
+  margin-top: 100px;
 `;
 
 export const InputForm = styled(InputFormEl)``;
@@ -24,3 +25,5 @@ export const SocialSignInButton = styled(Button)`
   margin: 7px 0;
   width: 100%;
 `;
+
+export const LinkButton = styled(Button)``;
