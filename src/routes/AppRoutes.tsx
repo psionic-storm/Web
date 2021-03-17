@@ -1,15 +1,18 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import MainPage from 'Pages/SquarePage/SquarePage';
+import SquarePage from 'Pages/SquarePage/SquarePage';
+import SignInPage from 'Pages/SignInPage/SignInPage';
 
 function AppRoutes() {
   return (
     <Switch>
       <Route path="/" exact>
-        <MainPage />
+        <SquarePage />
       </Route>
       <Route path="/signUp"></Route>
-      <Route path="/signIn"></Route>
+      <Route path="/signIn">
+        <SignInPage />
+      </Route>
     </Switch>
   );
 }
