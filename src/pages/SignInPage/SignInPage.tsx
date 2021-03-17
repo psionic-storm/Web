@@ -1,11 +1,11 @@
 import React from 'react';
-import SignInForm from 'Components/SignInForm/SignInForm';
+import AuthForm from 'Components/AuthForm/AuthForm';
 import * as S from './SignInPageStyle';
 
 function SignInPage() {
   return (
     <S.Container>
-      <SignInForm />
+      <AuthForm authType="Sign In" />
     </S.Container>
   );
 }
