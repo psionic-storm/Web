@@ -8,5 +8,8 @@ export const Container = styled.div`
 
 export const ContentWrapper = styled.div`
   width: 1200px;
+`;
+
+export const ProfileWrapper = styled.div`
   display: flex;
 `;

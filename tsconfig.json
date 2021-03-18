@@ -23,7 +23,8 @@
       "Hooks*": ["src/hooks*"],
       "Elements*": ["src/elements*"],
       "Components*": ["src/components*"],
-      "Apis*": ["src/apis*"]
+      "Apis*": ["src/apis*"],
+      "Assets*": ["src/assets*"]
     }
   },
   "include": ["src"]

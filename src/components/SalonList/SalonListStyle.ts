@@ -7,7 +7,7 @@ export const Container = styled.div`
 export const Title = styled.div`
   font-weight: bold;
   font-size: 24px;
-  margin: 10px 8px;
+  margin: 14px 8px;
 `;
 
 export const SalonItem = styled.div`
