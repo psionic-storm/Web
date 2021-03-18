@@ -1,12 +1,16 @@
 import React from 'react';
 import AuthForm from 'Components/AuthForm/AuthForm';
 import * as S from './SignInPageStyle';
+import Header from 'Components/Header/Header';
 
 function SignInPage() {
   return (
-    <S.Container>
-      <AuthForm authType="Sign In" />
-    </S.Container>
+    <>
+      <Header />
+      <S.Container>
+        <AuthForm authType="Sign In" />
+      </S.Container>
+    </>
   );
 }
 
