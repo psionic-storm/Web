@@ -12,7 +12,7 @@ function SpacePage() {
 
   const openBookSearchModal = useCallback(() => {
     setOpenModal(true);
-  }, [setOpenModal]);
+  });
 
   return (
     <>
