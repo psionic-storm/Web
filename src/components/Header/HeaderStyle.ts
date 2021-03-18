@@ -26,8 +26,7 @@ export const LogoAndSearchBarWrapper = styled.div`
 `;
 
 export const SignInButton = styled(Button)`
-  margin: 0 20px;
+  border: none;
+  margin: 0 10px;
   padding: 7px 15px;
-  top: 0;
-  right: 0;
 `;
