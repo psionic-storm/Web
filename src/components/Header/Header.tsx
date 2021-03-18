@@ -3,6 +3,7 @@ import HeaderBlock from 'Elements/HeaderBlock/HeaderBlock';
 import { Link, useLocation } from 'react-router-dom';
 import * as S from './HeaderStyle';
 import SearchBar from 'Components/SearchBar/SearchBar';
+import Avatar from 'Elements/Avatar/Avatar';
 
 function Header() {
   const { pathname } = useLocation();
@@ -24,6 +25,9 @@ function Header() {
         </S.LogoAndSearchBarWrapper>
         <Link to="/signIn">
           <S.SignInButton>Sign In</S.SignInButton>
+        </Link>
+        <Link to="/space">
+          <Avatar />
         </Link>
       </S.Container>
       <HeaderBlock />

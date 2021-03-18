@@ -4,16 +4,22 @@ import PALETTE from 'Styles/color-variables';
 
 interface AvatarProps {
   color?: string;
+  height?: string;
+  width?: string;
 }
 
-function Avatar({ color = PALETTE.GRAY[4] }: AvatarProps) {
+function Avatar({
+  color = PALETTE.GRAY[4],
+  height = '36',
+  width = '36',
+}: AvatarProps) {
   return (
     <S.Container>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        height="36"
+        height={height}
         viewBox="0 0 24 24"
-        width="36"
+        width={width}
       >
         <path d="M0 0h24v24H0z" fill="none" />
         <path
