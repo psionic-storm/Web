@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from 'Elements/Avatar/Avatar';
+import Avatar from 'Elements/svg/UserAvatar/UserAvatar';
 import * as S from './ProfileStyle';
 
 function Profile() {

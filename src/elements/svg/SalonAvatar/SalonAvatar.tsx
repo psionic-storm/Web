@@ -1,18 +1,18 @@
 import React from 'react';
-import * as S from './AvatarStyle';
+import * as S from './SalonAvatarStyle';
 import PALETTE from 'Styles/color-variables';
 
-interface AvatarProps {
+interface SalonAvatarProps {
   color?: string;
   height?: string;
   width?: string;
 }
 
-function Avatar({
+function SalonAvatar({
   color = PALETTE.GRAY[4],
   height = '36',
   width = '36',
-}: AvatarProps) {
+}: SalonAvatarProps) {
   return (
     <S.Container>
       <svg
@@ -31,4 +31,4 @@ function Avatar({
   );
 }
 
-export default Avatar;
+export default SalonAvatar;

@@ -5,3 +5,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const ContentWrapper = styled.div`
+  width: 1200px;
+  display: flex;
+`;
