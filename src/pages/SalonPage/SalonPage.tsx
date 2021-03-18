@@ -1,16 +1,16 @@
 import React from 'react';
-import * as S from './SpacePageStyle';
+import * as S from './SalonPageStyle';
 import Profile from 'Components/Profile/Profile';
-import AvatarList from 'Elements/AvatarList/AvatarList';
 import BookList from 'Components/BookList/BookList';
+import AvatarList from 'Elements/AvatarList/AvatarList';
 
-function SpacePage() {
+function SalonPage() {
   return (
     <S.Container>
       <S.ContentWrapper>
         <S.ProfileWrapper>
           <Profile />
-          <AvatarList title="salon" type="salon" />
+          <AvatarList title="Participants" type="user" />
         </S.ProfileWrapper>
         <BookList />
       </S.ContentWrapper>
@@ -18,4 +18,4 @@ function SpacePage() {
   );
 }
 
-export default SpacePage;
+export default SalonPage;

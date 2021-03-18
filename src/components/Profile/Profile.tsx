@@ -6,8 +6,8 @@ function Profile() {
   return (
     <S.Container>
       <Avatar height="300" width="300" />
-      <S.Nickname>Granzort</S.Nickname>
-      <S.Email>jungcome7@gmail.com</S.Email>
+      <S.Title>Granzort</S.Title>
+      <S.SubTitle>jungcome7@gmail.com</S.SubTitle>
     </S.Container>
   );
 }

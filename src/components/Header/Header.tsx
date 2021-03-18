@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import HeaderBlock from 'Elements/HeaderBlock/HeaderBlock';
 import { Link, useLocation } from 'react-router-dom';
 import * as S from './HeaderStyle';
-import SearchBar from 'Components/SearchBar/SearchBar';
+import SearchBar from 'Elements/SearchBar/SearchBar';
 import Avatar from 'Elements/svg/UserAvatar/UserAvatar';
 
 function Header() {

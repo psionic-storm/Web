@@ -4,6 +4,7 @@ import SquarePage from 'Pages/SquarePage/SquarePage';
 import SignInPage from 'Pages/SignInPage/SignInPage';
 import SignUpPage from 'Pages/SignUpPage/SignUpPage';
 import SpacePage from 'Pages/SpacePage/SpacePage';
+import SalonPage from 'Pages/SalonPage/SalonPage';
 
 function AppRoutes() {
   return (
@@ -19,6 +20,9 @@ function AppRoutes() {
       </Route>
       <Route path="/space">
         <SpacePage />
+      </Route>
+      <Route path="/salon">
+        <SalonPage />
       </Route>
     </Switch>
   );

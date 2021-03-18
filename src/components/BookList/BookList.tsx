@@ -1,6 +1,5 @@
 import React from 'react';
 import * as S from './BookListStyle';
-import a from '../../assets/image/battlenet.png';
 
 function BookList() {
   return (
