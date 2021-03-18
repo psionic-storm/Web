@@ -19,4 +19,16 @@ export const ModalContent = styled.div`
   height: 700px;
   border-radius: 10px;
   background-color: ${PALETTE.WHITE};
+
+  & > div {
+    width: 660px;
+    margin: 20px 20px;
+  }
+`;
+
+export const CardList = styled.div`
+  overflow-y: scroll;
+  padding: 0 10px;
+  width: 660px;
+  height: 620px;
 `;

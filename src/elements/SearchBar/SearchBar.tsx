@@ -1,10 +1,16 @@
 import React from 'react';
 import * as S from './SearchBarStyle';
 
-function SearchBar() {
+interface SearchBarProps {
+  placeholder?: string;
+}
+
+function SearchBar({
+  placeholder = 'Search Salon, Space, Book..',
+}: SearchBarProps) {
   return (
     <S.Container>
-      <S.SearchInput placeholder="Search Salon, Space, Book.." />
+      <S.SearchInput placeholder={placeholder} />
     </S.Container>
   );
 }

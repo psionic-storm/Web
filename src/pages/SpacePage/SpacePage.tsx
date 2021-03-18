@@ -14,10 +14,6 @@ function SpacePage() {
     setOpenModal(true);
   }, [setOpenModal]);
 
-  const hideBookSearchModal = useCallback(() => {
-    setOpenModal(false);
-  }, [setOpenModal]);
-
   return (
     <>
       <Header />
@@ -29,7 +25,7 @@ function SpacePage() {
           </S.ProfileWrapper>
           <BookList openBookSearchModal={openBookSearchModal} />
         </S.ContentWrapper>
-        {openModal && <SearchModal hideBookSearchModal={hideBookSearchModal} />}
+        {openModal && <SearchModal />}
       </S.Container>
     </>
   );
