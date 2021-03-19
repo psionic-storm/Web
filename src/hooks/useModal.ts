@@ -1,7 +1,7 @@
 import { RootState } from 'Modules';
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { openModalAction, closeModalAction } from 'Modules/modal/actions';
+import { openModalAction, closeModalAction } from 'Modules/modal/modalActions';
 
 function useModal() {
   const modalOpen = useSelector((state: RootState) => state.modalReducer.modalOpen);

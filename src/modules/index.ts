@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { all } from 'redux-saga/effects';
-import modalReducer from './modal/reducer';
+import modalReducer from './modal/modalReducer';
 
 const rootReducer = combineReducers({ modalReducer });
 

@@ -1,4 +1,4 @@
-import ActionTypes from './actionTypes';
+import ActionTypes from './modalActionTypes';
 
 export function openModalAction() {
   return {
