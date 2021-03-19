@@ -16,6 +16,8 @@ function modalReducer(state: any = initialState, action: any) {
         ...state,
         modalOpen: false,
       };
+    default:
+      return state;
   }
 }
 

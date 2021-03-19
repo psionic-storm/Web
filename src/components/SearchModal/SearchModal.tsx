@@ -2,18 +2,20 @@ import Card from 'Elements/Card/Card';
 import SearchBar from 'Elements/SearchBar/SearchBar';
 import React from 'react';
 import * as S from './SearchModalStyle';
+import useModal from 'Hooks/useModal';
 
 function SearchModal() {
+  const { closeModal } = useModal();
+
   const data = {
-    imgSrc:
-      'http://image.kyobobook.co.kr/images/book/large/109/l9788983976109.jpg',
+    imgSrc: 'http://image.kyobobook.co.kr/images/book/large/109/l9788983976109.jpg',
     title: '스타크래프트',
     subTitle: 'Granzort',
     description: "this is closest i'v ever gotten to a college graduation.",
   };
   return (
-    <S.Container>
-      <S.ModalContent className="ModalContent">
+    <S.Container onClick={closeModal}>
+      <S.ModalContent className="modal-content">
         <SearchBar placeholder="Search Books.." />
         <S.CardList>
           {Array(10)

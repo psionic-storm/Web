@@ -8,12 +8,18 @@ function useModal() {
   const dispatch = useDispatch();
 
   const openModal = useCallback(() => {
-    dispatch(openModalAction);
+    console.log('asdf');
+    dispatch(openModalAction());
   }, [dispatch]);
 
-  const closeModal = useCallback(() => {
-    dispatch(closeModalAction);
-  }, [dispatch]);
+  const closeModal = useCallback(
+    (e) => {
+      if (modalOpen && !e.target.closest('.modal-content')) {
+        dispatch(closeModalAction());
+      }
+    },
+    [modalOpen, dispatch],
+  );
 
   return { modalOpen, openModal, closeModal };
 }
