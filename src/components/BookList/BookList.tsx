@@ -1,11 +1,10 @@
+import useModal from 'Hooks/useModal';
 import React from 'react';
 import * as S from './BookListStyle';
 
-interface BookListProps {
-  openBookSearchModal: () => void;
-}
+function BookList() {
+  const { openModal } = useModal();
 
-function BookList({ openBookSearchModal }: BookListProps) {
   return (
     <S.Container>
       <S.TitleWrapper>
@@ -17,7 +16,7 @@ function BookList({ openBookSearchModal }: BookListProps) {
           .fill(0)
           .map((book, idx) => (
             <S.Img
-              onClick={openBookSearchModal}
+              onClick={openModal}
               key={idx}
               src="http://image.kyobobook.co.kr/images/book/large/109/l9788983976109.jpg"
             />
