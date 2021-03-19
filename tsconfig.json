@@ -19,6 +19,7 @@
       "Stories*": ["src/stories*"],
       "Routes*": ["src/routes*"],
       "Modules*": ["src/modules*"],
+      "Modules": ["src/modules/index.ts"],
       "Pages*": ["src/pages*"],
       "Hooks*": ["src/hooks*"],
       "Elements*": ["src/elements*"],
