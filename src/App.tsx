@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import GlobalStyle from 'Styles/GlobalStyle';
 import AppRoutes from 'Routes/AppRoutes';
 import { getAllQuotes, getAllReviews } from 'Apis/squareAPI';
-import { getSpace } from 'Apis/spaceAPI';
+import { getSpace, updateSpace } from 'Apis/spaceAPI';
 
 function App() {
   localStorage.setItem(
@@ -15,7 +15,7 @@ function App() {
   };
 
   useEffect(() => {
-    const a = getSpace(3);
+    const a = updateSpace({ spaceId: 3, name: 'updated spaceId' });
     console.log(a);
   });
 
