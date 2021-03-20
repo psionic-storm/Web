@@ -1,7 +1,7 @@
-import { psionicStorm, psionicStormAuth } from './base';
+import { psionicStormAuth } from './base';
 
 export async function getSpace({ spaceId }: any) {
-  const { data } = await psionicStorm.get(`/space/${spaceId}`);
+  const { data } = await psionicStormAuth.get(`/space/${spaceId}`);
   console.log(data);
   return data;
 }
@@ -13,7 +13,7 @@ export async function updateSpace({ spaceId, name }: any) {
 }
 
 export async function getBook({ spaceId, bookId }: any) {
-  const { data } = await psionicStorm.get(`/space/${spaceId}/book/${bookId}`);
+  const { data } = await psionicStormAuth.get(`/space/${spaceId}/book/${bookId}`);
   console.log(data);
   return data;
 }
