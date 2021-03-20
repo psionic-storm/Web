@@ -1,27 +1,27 @@
 import { RootState } from 'Modules';
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { openModalAction, closeModalAction } from 'Modules/modal/modalActions';
+import { openModal, closeModal } from 'Modules/modal/modalActions';
 
 function useModal() {
   const modalOpen = useSelector((state: RootState) => state.modalReducer.modalOpen);
   const dispatch = useDispatch();
 
-  const openModal = useCallback(() => {
+  const handleOpenModal = useCallback(() => {
     console.log('asdf');
-    dispatch(openModalAction());
+    dispatch(openModal());
   }, [dispatch]);
 
-  const closeModal = useCallback(
+  const handleCloseModal = useCallback(
     (e) => {
       if (modalOpen && !e.target.closest('.modal-content')) {
-        dispatch(closeModalAction());
+        dispatch(closeModal());
       }
     },
     [modalOpen, dispatch],
   );
 
-  return { modalOpen, openModal, closeModal };
+  return { modalOpen, handleOpenModal, handleCloseModal };
 }
 
 export default useModal;

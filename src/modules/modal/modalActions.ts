@@ -1,13 +1,13 @@
 import ActionTypes from './modalActionTypes';
 
-export function openModalAction() {
+export function openModal() {
   return {
     type: ActionTypes.OPEN_MODAL,
     payload: null,
   };
 }
 
-export function closeModalAction() {
+export function closeModal() {
   return {
     type: ActionTypes.CLOSE_MODAL,
     payload: null,

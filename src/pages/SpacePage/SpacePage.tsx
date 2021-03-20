@@ -5,7 +5,7 @@ import AvatarList from 'Elements/AvatarList/AvatarList';
 import BookList from 'Components/BookList/BookList';
 import SearchModal from 'Components/SearchModal/SearchModal';
 import Header from 'Components/Header/Header';
-import useModal from 'Hooks/useModal';
+import useModal from 'Hooks/redux/useModal';
 
 function SpacePage() {
   const { modalOpen } = useModal();

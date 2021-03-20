@@ -1,9 +1,9 @@
-import useModal from 'Hooks/useModal';
+import useModal from 'Hooks/redux/useModal';
 import React from 'react';
 import * as S from './BookListStyle';
 
 function BookList() {
-  const { openModal } = useModal();
+  const { handleOpenModal } = useModal();
 
   return (
     <S.Container>
@@ -16,7 +16,7 @@ function BookList() {
           .fill(0)
           .map((book, idx) => (
             <S.Img
-              onClick={openModal}
+              onClick={handleOpenModal}
               key={idx}
               src="http://image.kyobobook.co.kr/images/book/large/109/l9788983976109.jpg"
             />

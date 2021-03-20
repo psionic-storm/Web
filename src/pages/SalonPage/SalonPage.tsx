@@ -5,7 +5,7 @@ import BookList from 'Components/BookList/BookList';
 import AvatarList from 'Elements/AvatarList/AvatarList';
 import SearchModal from 'Components/SearchModal/SearchModal';
 import Header from 'Components/Header/Header';
-import useModal from 'Hooks/useModal';
+import useModal from 'Hooks/redux/useModal';
 
 function SalonPage() {
   const { modalOpen } = useModal();
