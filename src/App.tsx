@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import GlobalStyle from 'Styles/GlobalStyle';
 import AppRoutes from 'Routes/AppRoutes';
-import { getCurrentUser, signIn } from 'Apis/userAPI';
+import { getAllQuotes, getAllReviews } from 'Apis/squareAPI';
 
 function App() {
   localStorage.setItem(
@@ -14,7 +14,7 @@ function App() {
   };
 
   useEffect(() => {
-    const a = getCurrentUser();
+    const a = getAllQuotes();
     console.log(a);
   });
 
