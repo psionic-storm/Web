@@ -90,3 +90,60 @@ export async function deleteReviewComment({ spaceId, bookId, reviewId, commentId
   console.log(data);
   return data;
 }
+
+export async function addQuote({ spaceId, bookId, content, page }: any) {
+  const { data } = await psionicStormAuth.post(`/space/${spaceId}/book/${bookId}/quote`, {
+    content,
+    page,
+  });
+  console.log(data);
+  return data;
+}
+
+export async function updateQuote({ spaceId, bookId, quoteId, content, page }: any) {
+  const { data } = await psionicStormAuth.patch(`/space/${spaceId}/book/${bookId}/quote/${quoteId}`, {
+    content,
+    page,
+  });
+  console.log(data);
+  return data;
+}
+
+export async function deleteQuote({ spaceId, bookId, quoteId }: any) {
+  const { data } = await psionicStormAuth.delete(`/space/${spaceId}/book/${bookId}/quote/${quoteId}`);
+  console.log(data);
+  return data;
+}
+
+export async function getAllQuoteComments({ spaceId, bookId, quoteId }: any) {
+  const { data } = await psionicStormAuth.get(`/space/${spaceId}/book/${bookId}/quote/${quoteId}/comment`);
+  console.log(data);
+  return data;
+}
+
+export async function addQuoteComment({ spaceId, bookId, quoteId, comment }: any) {
+  const { data } = await psionicStormAuth.post(`/space/${spaceId}/book/${bookId}/quote/${quoteId}/comment`, {
+    comment,
+  });
+  console.log(data);
+  return data;
+}
+
+export async function updateQuoteComment({ spaceId, bookId, quoteId, commentId, comment }: any) {
+  const { data } = await psionicStormAuth.patch(
+    `/space/${spaceId}/book/${bookId}/quote/${quoteId}/comment/${commentId}`,
+    {
+      comment,
+    },
+  );
+  console.log(data);
+  return data;
+}
+
+export async function deleteQuoteComment({ spaceId, bookId, quoteId, commentId }: any) {
+  const { data } = await psionicStormAuth.delete(
+    `/space/${spaceId}/book/${bookId}/quote/${quoteId}/comment/${commentId}`,
+  );
+  console.log(data);
+  return data;
+}
