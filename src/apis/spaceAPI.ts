@@ -17,3 +17,13 @@ export async function getBook({ spaceId, bookId }: any) {
   console.log(data);
   return data;
 }
+
+export async function addBook({ spaceId, title, author, description }: any) {
+  const { data } = await psionicStormAuth.post(`/space/${spaceId}/book`, {
+    title,
+    author,
+    description,
+  });
+  console.log(data);
+  return data;
+}
