@@ -1,14 +1,16 @@
 import ActionTypes from './modalActionTypes';
 
+export type ModalAction = ReturnType<typeof openModal> | ReturnType<typeof closeModal>;
+
 export function openModal() {
-  return {
+  return <const>{
     type: ActionTypes.OPEN_MODAL,
     payload: null,
   };
 }
 
 export function closeModal() {
-  return {
+  return <const>{
     type: ActionTypes.CLOSE_MODAL,
     payload: null,
   };
