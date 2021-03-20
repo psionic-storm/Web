@@ -1,13 +1,13 @@
-import { psionicStorm } from './base';
+import { psionicStormAuth } from './base';
 
 export async function getAllReviews() {
-  const { data } = await psionicStorm.get('/square/reviews');
+  const { data } = await psionicStormAuth.get('/square/reviews');
   console.log(data);
   return data;
 }
 
 export async function getAllQuotes() {
-  const { data } = await psionicStorm.get('/square/quotes');
+  const { data } = await psionicStormAuth.get('/square/quotes');
   console.log(data);
   return data;
 }

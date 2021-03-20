@@ -27,3 +27,66 @@ export async function addBook({ spaceId, title, author, description }: any) {
   console.log(data);
   return data;
 }
+
+export async function deleteBook({ spaceId, bookId }: any) {
+  const { data } = await psionicStormAuth.delete(`/space/${spaceId}/book/${bookId}`);
+  console.log(data);
+  return data;
+}
+
+export async function addReview({ spaceId, bookId, title, content }: any) {
+  const { data } = await psionicStormAuth.post(`/space/${spaceId}/book/${bookId}/review`, {
+    title,
+    content,
+  });
+  console.log(data);
+  return data;
+}
+
+export async function updateReview({ spaceId, bookId, reviewId, title, content }: any) {
+  const { data } = await psionicStormAuth.patch(`/space/${spaceId}/book/${bookId}/review/${reviewId}`, {
+    title,
+    content,
+  });
+  console.log(data);
+  return data;
+}
+
+export async function deleteReview({ spaceId, bookId, reviewId }: any) {
+  const { data } = await psionicStormAuth.delete(`/space/${spaceId}/book/${bookId}/review/${reviewId}`);
+  console.log(data);
+  return data;
+}
+
+export async function getAllReviewComments({ spaceId, bookId, reviewId }: any) {
+  const { data } = await psionicStormAuth.get(`/space/${spaceId}/book/${bookId}/review/${reviewId}/comment`);
+  console.log(data);
+  return data;
+}
+
+export async function addReviewComment({ spaceId, bookId, reviewId, comment }: any) {
+  const { data } = await psionicStormAuth.post(`/space/${spaceId}/book/${bookId}/review/${reviewId}/comment`, {
+    comment,
+  });
+  console.log(data);
+  return data;
+}
+
+export async function updateReviewComment({ spaceId, bookId, reviewId, commentId, comment }: any) {
+  const { data } = await psionicStormAuth.patch(
+    `/space/${spaceId}/book/${bookId}/review/${reviewId}/comment/${commentId}`,
+    {
+      comment,
+    },
+  );
+  console.log(data);
+  return data;
+}
+
+export async function deleteReviewComment({ spaceId, bookId, reviewId, commentId }: any) {
+  const { data } = await psionicStormAuth.delete(
+    `/space/${spaceId}/book/${bookId}/review/${reviewId}/comment/${commentId}`,
+  );
+  console.log(data);
+  return data;
+}
