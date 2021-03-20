@@ -4,15 +4,17 @@ import AppRoutes from 'Routes/AppRoutes';
 import { getCurrentUser, signIn } from 'Apis/userAPI';
 
 function App() {
+  localStorage.setItem(
+    'accessToken',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImxvZ2luSWQiOiJteUlkIiwibmlja25hbWUiOiJteU5pY2tuYW1lIiwiaWF0IjoxNjE1ODY3MjM2fQ.3ldJOQmCB8eQvhmTO-VfRwNRPtz56SBSAGtplWHgJJk',
+  );
   const body = {
     loginId: 'asdddaddf',
     password: 'gggg',
   };
 
   useEffect(() => {
-    const a = getCurrentUser(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDIsI…DI0fQ.kll4uK8V3T6_VWch6A0yzGap9avoAi2KAkI2w1cRbaw',
-    );
+    const a = getCurrentUser();
     console.log(a);
   });
 

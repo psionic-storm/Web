@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-export const TOKEN_KEY = 'authorization';
+export const TOKEN_KEY = 'Authorization';
 
 const devURL = 'http://localhost:';
 const prodURL = '';
@@ -14,11 +14,10 @@ export const psionicStorm = Axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
-export const psionicStormAuth = (token: string) =>
-  Axios.create({
-    baseURL: apiURL,
-    headers: {
-      'Content-Type': 'application/json',
-      [TOKEN_KEY]: token,
-    },
-  });
+export const psionicStormAuth = Axios.create({
+  baseURL: apiURL,
+  headers: {
+    'Content-Type': 'application/json',
+    [TOKEN_KEY]: `Bearer ${localStorage.getItem('accessToken')}`,
+  },
+});
