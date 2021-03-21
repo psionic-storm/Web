@@ -5,24 +5,18 @@ import { getAllQuotes, getAllReviews } from 'Apis/squareAPI';
 import { addBook, getBook, getSpace, updateSpace } from 'Apis/spaceAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestSignUp } from 'Modules/user/userActions';
+import useUser from 'Hooks/redux/useUser';
 
 function App() {
-  localStorage.setItem(
-    'accessToken',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImxvZ2luSWQiOiJteUlkIiwibmlja25hbWUiOiJteU5pY2tuYW1lIiwiaWF0IjoxNjE1ODY3MjM2fQ.3ldJOQmCB8eQvhmTO-VfRwNRPtz56SBSAGtplWHgJJk',
-  );
-  const dispatch = useDispatch();
+  const { signIn } = useUser();
   const body = {
     loginId: 'asddddaddf',
     password: 'gggg',
-    nickname: 'asdfdsfsd',
   };
 
-  const user = useSelector((state: any) => state.user);
   useEffect(() => {
-    dispatch(requestSignUp(body));
-    console.log(user);
-  });
+    signIn(body);
+  }, []);
 
   return (
     <>

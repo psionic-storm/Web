@@ -9,7 +9,6 @@ import {
   RequestSignUpAction,
   RequestSignInAction,
   RequestSignUpSuccessActionPayload,
-  RequestSignInSuccessActionPayload,
   requestGetCurrentUserSuccess,
   requestGetCurrentUserFailure,
   RequestGetCurrentUserSuccessActionPayload,
@@ -26,8 +25,9 @@ function* requestSignUpSaga({ payload }: RequestSignUpAction) {
 
 function* requestSignInSaga({ payload }: RequestSignInAction) {
   try {
-    const response: RequestSignInSuccessActionPayload = yield call(userAPI.signIn, payload);
-    yield put(requestSignInSuccess(response));
+    const { accessToken } = yield call(userAPI.signIn, payload);
+    yield localStorage.setItem('accessToken', accessToken);
+    yield put(requestSignInSuccess());
   } catch (e) {
     yield put(requestSignInFailure(e));
   }
@@ -36,6 +36,7 @@ function* requestSignInSaga({ payload }: RequestSignInAction) {
 function* requestGetCurrentUserSaga() {
   try {
     const response: RequestGetCurrentUserSuccessActionPayload = yield call(userAPI.getCurrentUser);
+    console.log(response);
     yield put(requestGetCurrentUserSuccess(response));
   } catch (e) {
     yield put(requestGetCurrentUserFailure(e));

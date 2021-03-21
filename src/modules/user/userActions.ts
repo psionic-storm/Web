@@ -16,7 +16,6 @@ export type RequestSignUpSuccessActionPayload = number;
 export type RequestSignUpFailureActionPayload = Error;
 
 export type RequestSignInActionPayload = { loginId: string; password: string };
-export type RequestSignInSuccessActionPayload = { accessToken: string };
 export type RequestSignInFailureActionPayload = Error;
 
 export type RequestGetCurrentUserSuccessActionPayload = { id: number; loginId: string; nickname: string; iat: number };
@@ -57,10 +56,9 @@ export function requestSignIn({ loginId, password }: RequestSignInActionPayload)
   };
 }
 
-export function requestSignInSuccess(accessToken: RequestSignInSuccessActionPayload) {
+export function requestSignInSuccess() {
   return <const>{
     type: ActionTypes.REQUEST_SIGN_IN_SUCCESS,
-    payload: { accessToken },
   };
 }
 
