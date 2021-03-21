@@ -43,6 +43,26 @@ export type SpaceAction =
   | ReturnType<typeof requestDeleteQuoteCommentSuccess>
   | ReturnType<typeof requestDeleteQuoteCommentFailure>;
 
+export type RequestGetSpaceAction = ReturnType<typeof requestGetSpace>;
+export type RequestUpdateSpaceAction = ReturnType<typeof requestUpdateSpace>;
+export type RequestGetBookAction = ReturnType<typeof requestGetBook>;
+export type RequestAddBookAction = ReturnType<typeof requestAddBook>;
+export type RequestDeleteBookAction = ReturnType<typeof requestDeleteBook>;
+export type RequestAddReviewAction = ReturnType<typeof requestAddReview>;
+export type RequestUpdateReviewAction = ReturnType<typeof requestUpdateReview>;
+export type RequestDeleteReviewAction = ReturnType<typeof requestDeleteReview>;
+export type RequestGetAllReviewCommentsAction = ReturnType<typeof requestGetAllReviewComments>;
+export type RequestAddReviewCommentAction = ReturnType<typeof requestAddReviewComment>;
+export type RequestUpdateReviewCommentAction = ReturnType<typeof requestUpdateReviewComment>;
+export type RequestDeleteReviewCommentAction = ReturnType<typeof requestDeleteReviewComment>;
+export type RequestAddQuoteAction = ReturnType<typeof requestAddQuote>;
+export type RequestUpdateQuoteAction = ReturnType<typeof requestUpdateQuote>;
+export type RequestDeleteQuoteAction = ReturnType<typeof requestDeleteQuote>;
+export type RequestGetAllQuoteCommentsAction = ReturnType<typeof requestGetAllQuoteComments>;
+export type RequestAddQuoteCommentAction = ReturnType<typeof requestAddQuoteComment>;
+export type RequestUpdateQuoteCommentAction = ReturnType<typeof requestUpdateQuoteComment>;
+export type RequestDeleteQuoteCommentAction = ReturnType<typeof requestDeleteQuoteComment>;
+
 export type RequestGetSpaceActionPayload = { spaceId: number };
 export type RequestUpdateSpaceActionPayload = { spaceId: number; name: string };
 export type RequestGetBookActionPayload = { spaceId: number; bookId: number };
