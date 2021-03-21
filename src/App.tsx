@@ -10,7 +10,7 @@ import useSquare from 'Hooks/redux/useSquare';
 
 function App() {
   const { signIn } = useUser();
-  const { getAllReviews, reviews } = useSquare();
+  const { getAllReviews, reviews, getAllQuotes } = useSquare();
   const body = {
     loginId: 'asddddaddf',
     password: 'gggg',
@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     // signIn(body);
-    getAllReviews();
+    getAllQuotes();
   }, []);
 
   return (

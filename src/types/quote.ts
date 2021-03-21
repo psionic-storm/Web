@@ -1,8 +1,8 @@
-export interface Review {
+export interface Quote {
   id: number;
-  title: string;
   content: string;
-  reviewer: string;
+  page: number;
+  quoter: string;
   created_at: string;
   updated_at: string;
   book_title: string;

@@ -5,6 +5,9 @@ import {
   requestGetAllReviewsFailure,
   requestGetAllReviewsSuccess,
   RequestGetAllReviewsSuccessActionPayload,
+  requestGetAllQuotesFailure,
+  requestGetAllQuotesSuccess,
+  RequestGetAllQuotesSuccessActionPayload,
 } from './squareActions';
 
 function* requestGetAllReviewsSaga() {
@@ -16,6 +19,16 @@ function* requestGetAllReviewsSaga() {
   }
 }
 
+function* requestGetAllQuotesSaga() {
+  try {
+    const response: RequestGetAllQuotesSuccessActionPayload = yield call(squareAPI.getAllQuotes);
+    yield put(requestGetAllQuotesSuccess(response));
+  } catch (e) {
+    yield put(requestGetAllQuotesFailure(e));
+  }
+}
+
 export default function* squareSaga() {
-  yield takeLatest(ActionTypes.REQUEST_GET_GET_ALL_REVIEWS, requestGetAllReviewsSaga);
+  yield takeLatest(ActionTypes.REQUEST_GET_ALL_REVIEWS, requestGetAllReviewsSaga);
+  yield takeLatest(ActionTypes.REQUEST_GET_ALL_QUOTES, requestGetAllQuotesSaga);
 }
