@@ -13,13 +13,10 @@ export type RequestSignInAction = ReturnType<typeof requestSignIn>;
 
 export type RequestSignUpActionPayload = { loginId: string; password: string; nickname: string };
 export type RequestSignUpSuccessActionPayload = number;
-export type RequestSignUpFailureActionPayload = Error;
 
 export type RequestSignInActionPayload = { loginId: string; password: string };
-export type RequestSignInFailureActionPayload = Error;
 
 export type RequestGetCurrentUserSuccessActionPayload = { id: number; loginId: string; nickname: string; iat: number };
-export type RequestGetCurrentUserFailureActionPayload = Error;
 
 export function requestSignUp({ loginId, password, nickname }: RequestSignUpActionPayload) {
   return <const>{
@@ -39,7 +36,7 @@ export function requestSignUpSuccess(userId: RequestSignUpSuccessActionPayload) 
   };
 }
 
-export function requestSignUpFailure(error: RequestSignUpFailureActionPayload) {
+export function requestSignUpFailure(error: Error) {
   return <const>{
     type: ActionTypes.REQUEST_SIGN_UP_FAILURE,
     payload: { error },
@@ -62,7 +59,7 @@ export function requestSignInSuccess() {
   };
 }
 
-export function requestSignInFailure(error: RequestSignInFailureActionPayload) {
+export function requestSignInFailure(error: Error) {
   return <const>{
     type: ActionTypes.REQUEST_SIGN_IN_FAILURE,
     payload: { error },
@@ -87,7 +84,7 @@ export function requestGetCurrentUserSuccess({
   };
 }
 
-export function requestGetCurrentUserFailure(error: RequestGetCurrentUserFailureActionPayload) {
+export function requestGetCurrentUserFailure(error: Error) {
   return <const>{
     type: ActionTypes.REQUEST_GET_CURRENT_USER_FAILURE,
     payload: { error },

@@ -9,9 +9,7 @@ export type SquareAction =
   | ReturnType<typeof requestGetAllQuotesFailure>;
 
 export type RequestGetAllReviewsSuccessActionPayload = Review[];
-export type RequestGetAllReviewsFailureActionPayload = Error;
 export type RequestGetAllQuotesSuccessActionPayload = Quote[];
-export type RequestGetAllQuotesFailureActionPayload = Error;
 
 export function requestGetAllReviews() {
   return <const>{
@@ -26,7 +24,7 @@ export function requestGetAllReviewsSuccess(reviews: RequestGetAllReviewsSuccess
   };
 }
 
-export function requestGetAllReviewsFailure(error: RequestGetAllReviewsFailureActionPayload) {
+export function requestGetAllReviewsFailure(error: Error) {
   return <const>{
     type: ActionTypes.REQUEST_GET_ALL_REVIEWS_FAILURE,
     payload: { error },
@@ -46,7 +44,7 @@ export function requestGetAllQuotesSuccess(quotes: RequestGetAllQuotesSuccessAct
   };
 }
 
-export function requestGetAllQuotesFailure(error: RequestGetAllQuotesFailureActionPayload) {
+export function requestGetAllQuotesFailure(error: Error) {
   return <const>{
     type: ActionTypes.REQUEST_GET_ALL_QUOTES_FAILURE,
     payload: { error },
