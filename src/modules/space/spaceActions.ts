@@ -1,8 +1,7 @@
-import { Review } from 'Types/review';
-import { Quote } from 'Types/quote';
 import ActionTypes from './spaceActionTypes';
 import { Space } from 'Types/space';
 import { Book } from 'Types/book';
+import { Comment } from 'Types/comment';
 
 export type SpaceAction =
   | ReturnType<typeof requestGetSpaceSuccess>
@@ -103,36 +102,37 @@ export type RequestDeleteQuoteCommentActionPayload = {
   commentId: number;
 };
 
-export type RequestGetSpaceSuccessActionPayload = Space
-export type RequestUpdateSpaceSuccessActionPayload = {message:string}
-export type RequestGetBookSuccessActionPayload =Book
-export type RequestAddBookSuccessActionPayload = number
-export type RequestDeleteBookSuccessActionPayload ={message:string}
-export type RequestAddReviewSuccessActionPayload =number
-export type RequestUpdateReviewSuccessActionPayload ={message:string}
-export type RequestDeleteReviewSuccessActionPayload ={message:string}
-export type RequestGetAllReviewCommentsSuccessActionPayload = Comment
-export type RequestAddReviewCommentSuccessActionPayload =number
-export type RequestUpdateReviewCommentSuccessActionPayload ={message:string}
-export type RequestDeleteReviewCommentSuccessActionPayload ={message:string}
-export type RequestAddQuoteSuccessActionPayload =number
-export type RequestUpdateQuoteSuccessActionPayload ={message:string}
-export type RequestDeleteQuoteSuccessActionPayload ={message:string}
-export type RequestGetAllQuoteCommentsSuccessActionPayload =Comment
-export type RequestAddQuoteCommentSuccessActionPayload =number
-export type RequestUpdateQuoteCommentSuccessActionPayload ={message:string}
-export type RequestDeleteQuoteCommentSuccessActionPayload ={message:string}
+export type RequestGetSpaceSuccessActionPayload = Space;
+export type RequestUpdateSpaceSuccessActionPayload = { message: string };
+export type RequestGetBookSuccessActionPayload = Book;
+export type RequestAddBookSuccessActionPayload = number;
+export type RequestDeleteBookSuccessActionPayload = { message: string };
+export type RequestAddReviewSuccessActionPayload = number;
+export type RequestUpdateReviewSuccessActionPayload = { message: string };
+export type RequestDeleteReviewSuccessActionPayload = { message: string };
+export type RequestGetAllReviewCommentsSuccessActionPayload = Comment;
+export type RequestAddReviewCommentSuccessActionPayload = number;
+export type RequestUpdateReviewCommentSuccessActionPayload = { message: string };
+export type RequestDeleteReviewCommentSuccessActionPayload = { message: string };
+export type RequestAddQuoteSuccessActionPayload = number;
+export type RequestUpdateQuoteSuccessActionPayload = { message: string };
+export type RequestDeleteQuoteSuccessActionPayload = { message: string };
+export type RequestGetAllQuoteCommentsSuccessActionPayload = Comment;
+export type RequestAddQuoteCommentSuccessActionPayload = number;
+export type RequestUpdateQuoteCommentSuccessActionPayload = { message: string };
+export type RequestDeleteQuoteCommentSuccessActionPayload = { message: string };
 
-export function requestGetSpace({ spaceId }) {
+export function requestGetSpace({ spaceId }: RequestGetSpaceActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_GET_SPACE,
     payload: { spaceId },
   };
 }
 
-export function requestGetSpaceSuccess() {
+export function requestGetSpaceSuccess(payload: RequestGetSpaceSuccessActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_GET_SPACE_SUCCESS,
+    payload,
   };
 }
 
@@ -143,10 +143,10 @@ export function requestGetSpaceFailure(error: Error) {
   };
 }
 
-export function requestUpdateSpace({ spaceId, name }) {
+export function requestUpdateSpace({ spaceId, name }: RequestUpdateSpaceActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_UPDATE_SPACE,
-    payload :
+    payload: { spaceId, name },
   };
 }
 
@@ -163,16 +163,17 @@ export function requestUpdateSpaceFailure(error: Error) {
   };
 }
 
-export function requestGetBook({ spaceId, bookId }) {
+export function requestGetBook({ spaceId, bookId }: RequestGetBookActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_GET_BOOK,
-    payload :
+    payload: { spaceId, bookId },
   };
 }
 
-export function requestGetBookSuccess() {
+export function requestGetBookSuccess(payload: RequestGetBookSuccessActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_GET_BOOK_SUCCESS,
+    payload,
   };
 }
 
@@ -183,10 +184,10 @@ export function requestGetBookFailure(error: Error) {
   };
 }
 
-export function requestAddBook({ spaceId, title, author, description }) {
+export function requestAddBook({ spaceId, title, author, description }: RequestAddBookActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_ADD_BOOK,
-    payload :
+    payload: { spaceId, title, author, description },
   };
 }
 
@@ -203,10 +204,10 @@ export function requestAddBookFailure(error: Error) {
   };
 }
 
-export function requestDeleteBook({ spaceId, bookId }) {
+export function requestDeleteBook({ spaceId, bookId }: RequestDeleteBookActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_DELETE_BOOK,
-    payload :
+    payload: { spaceId, bookId },
   };
 }
 
@@ -223,10 +224,10 @@ export function requestDeleteBookFailure(error: Error) {
   };
 }
 
-export function requestAddReview({ spaceId, bookId, title, content }) {
+export function requestAddReview({ spaceId, bookId, title, content }: RequestAddReviewActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_ADD_REVIEW,
-    payload :
+    payload: { spaceId, bookId, title, content },
   };
 }
 
@@ -243,10 +244,10 @@ export function requestAddReviewFailure(error: Error) {
   };
 }
 
-export function requestUpdateReview({ spaceId, bookId, reviewId, title, content }) {
+export function requestUpdateReview({ spaceId, bookId, reviewId, title, content }: RequestUpdateReviewActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_UPDATE_REVIEW,
-    payload : { spaceId, bookId, reviewId, title, content }
+    payload: { spaceId, bookId, reviewId, title, content },
   };
 }
 
@@ -263,10 +264,10 @@ export function requestUpdateReviewFailure(error: Error) {
   };
 }
 
-export function requestDeleteReview({ spaceId, bookId, reviewId }) {
+export function requestDeleteReview({ spaceId, bookId, reviewId }: RequestDeleteReviewActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_DELETE_REVIEW,
-    payload : { spaceId, bookId, reviewId }
+    payload: { spaceId, bookId, reviewId },
   };
 }
 
@@ -283,16 +284,17 @@ export function requestDeleteReviewFailure(error: Error) {
   };
 }
 
-export function requestGetAllReviewComments({ spaceId, bookId, reviewId }) {
+export function requestGetAllReviewComments({ spaceId, bookId, reviewId }: RequestGetAllReviewCommentsActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_GET_ALL_REVIEW_COMMENTS,
-    payload : { spaceId, bookId, reviewId }
+    payload: { spaceId, bookId, reviewId },
   };
 }
 
-export function requestGetAllReviewCommentsSuccess() {
+export function requestGetAllReviewCommentsSuccess(payload: RequestGetAllReviewCommentsSuccessActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_GET_ALL_REVIEW_COMMENTS_SUCCESS,
+    payload,
   };
 }
 
@@ -303,10 +305,10 @@ export function requestGetAllReviewCommentsFailure(error: Error) {
   };
 }
 
-export function requestAddReviewComment({ spaceId, bookId, reviewId, comment }) {
+export function requestAddReviewComment({ spaceId, bookId, reviewId, comment }: RequestAddReviewCommentActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_ADD_REVIEW_COMMENT,
-    payload : { spaceId, bookId, reviewId, comment }
+    payload: { spaceId, bookId, reviewId, comment },
   };
 }
 
@@ -323,10 +325,16 @@ export function requestAddReviewCommentFailure(error: Error) {
   };
 }
 
-export function requestUpdateReviewComment({ spaceId, bookId, reviewId, commentId, comment }) {
+export function requestUpdateReviewComment({
+  spaceId,
+  bookId,
+  reviewId,
+  commentId,
+  comment,
+}: RequestUpdateReviewCommentActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_UPDATE_REVIEW_COMMENT,
-    payload : { spaceId, bookId, reviewId, commentId, comment }
+    payload: { spaceId, bookId, reviewId, commentId, comment },
   };
 }
 
@@ -343,10 +351,15 @@ export function requestUpdateReviewCommentFailure(error: Error) {
   };
 }
 
-export function requestDeleteReviewComment({ spaceId, bookId, reviewId, commentId }) {
+export function requestDeleteReviewComment({
+  spaceId,
+  bookId,
+  reviewId,
+  commentId,
+}: RequestDeleteReviewCommentActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_DELETE_REVIEW_COMMENT,
-    payload : { spaceId, bookId, reviewId, commentId }
+    payload: { spaceId, bookId, reviewId, commentId },
   };
 }
 
@@ -363,10 +376,10 @@ export function requestDeleteReviewCommentFailure(error: Error) {
   };
 }
 
-export function requestAddQuote({ spaceId, bookId, content, page }) {
+export function requestAddQuote({ spaceId, bookId, content, page }: RequestAddQuoteActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_ADD_QUOTE,
-    payload : { spaceId, bookId, content, page }
+    payload: { spaceId, bookId, content, page },
   };
 }
 
@@ -383,10 +396,10 @@ export function requestAddQuoteFailure(error: Error) {
   };
 }
 
-export function requestUpdateQuote({ spaceId, bookId, quoteId, content, page }) {
+export function requestUpdateQuote({ spaceId, bookId, quoteId, content, page }: RequestUpdateQuoteActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_UPDATE_QUOTE,
-    payload : { spaceId, bookId, quoteId, content, page }
+    payload: { spaceId, bookId, quoteId, content, page },
   };
 }
 
@@ -403,10 +416,10 @@ export function requestUpdateQuoteFailure(error: Error) {
   };
 }
 
-export function requestDeleteQuote({ spaceId, bookId, quoteId }) {
+export function requestDeleteQuote({ spaceId, bookId, quoteId }: RequestDeleteQuoteActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_DELETE_QUOTE,
-    payload : { spaceId, bookId, quoteId }
+    payload: { spaceId, bookId, quoteId },
   };
 }
 
@@ -423,16 +436,17 @@ export function requestDeleteQuoteFailure(error: Error) {
   };
 }
 
-export function requestGetAllQuoteComments({ spaceId, bookId, quoteId }) {
+export function requestGetAllQuoteComments({ spaceId, bookId, quoteId }: RequestGetAllQuoteCommentsActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_GET_ALL_QUOTE_COMMENTS,
-    payload : { spaceId, bookId, quoteId }
+    payload: { spaceId, bookId, quoteId },
   };
 }
 
-export function requestGetAllQuoteCommentsSuccess() {
+export function requestGetAllQuoteCommentsSuccess(payload: RequestGetAllQuoteCommentsSuccessActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_GET_ALL_QUOTE_COMMENTS_SUCCESS,
+    payload,
   };
 }
 
@@ -443,10 +457,10 @@ export function requestGetAllQuoteCommentsFailure(error: Error) {
   };
 }
 
-export function requestAddQuoteComment({ spaceId, bookId, quoteId, comment }) {
+export function requestAddQuoteComment({ spaceId, bookId, quoteId, comment }: RequestAddQuoteCommentActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_ADD_QUOTE_COMMENT,
-    payload : { spaceId, bookId, quoteId, comment }
+    payload: { spaceId, bookId, quoteId, comment },
   };
 }
 
@@ -463,10 +477,16 @@ export function requestAddQuoteCommentFailure(error: Error) {
   };
 }
 
-export function requestUpdateQuoteComment({ spaceId, bookId, quoteId, commentId, comment }) {
+export function requestUpdateQuoteComment({
+  spaceId,
+  bookId,
+  quoteId,
+  commentId,
+  comment,
+}: RequestUpdateQuoteCommentActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_UPDATE_QUOTE_COMMENT,
-    payload : { spaceId, bookId, quoteId, commentId, comment }
+    payload: { spaceId, bookId, quoteId, commentId, comment },
   };
 }
 
@@ -483,10 +503,15 @@ export function requestUpdateQuoteCommentFailure(error: Error) {
   };
 }
 
-export function requestDeleteQuoteComment({ spaceId, bookId, quoteId, commentId }) {
+export function requestDeleteQuoteComment({
+  spaceId,
+  bookId,
+  quoteId,
+  commentId,
+}: RequestDeleteQuoteCommentActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_DELETE_QUOTE_COMMENT,
-    payload : { spaceId, bookId, quoteId, commentId }
+    payload: { spaceId, bookId, quoteId, commentId },
   };
 }
 
