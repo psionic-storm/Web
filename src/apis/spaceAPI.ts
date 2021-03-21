@@ -1,7 +1,7 @@
 import { psionicStormAuth } from './base';
 import {
   RequestGetSpaceActionPayload,
-  RequestUpdateSapceActionPayload,
+  RequestUpdateSpaceActionPayload,
   RequestGetBookActionPayload,
   RequestAddBookActionPayload,
   RequestDeleteBookActionPayload,
@@ -27,7 +27,7 @@ export async function getSpace({ spaceId }: RequestGetSpaceActionPayload) {
   return data;
 }
 
-export async function updateSpace({ spaceId, name }: RequestUpdateSapceActionPayload) {
+export async function updateSpace({ spaceId, name }: RequestUpdateSpaceActionPayload) {
   const { data } = await psionicStormAuth.patch(`/space/${spaceId}`, { name });
   console.log(data);
   return data;

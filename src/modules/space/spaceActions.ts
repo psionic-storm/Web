@@ -43,7 +43,7 @@ export type SpaceAction =
   | ReturnType<typeof requestDeleteQuoteCommentFailure>;
 
 export type RequestGetSpaceActionPayload = { spaceId: number };
-export type RequestUpdateSapceActionPayload = { spaceId: number; name: string };
+export type RequestUpdateSpaceActionPayload = { spaceId: number; name: string };
 export type RequestGetBookActionPayload = { spaceId: number; bookId: number };
 export type RequestAddBookActionPayload = { spaceId: number; title: string; author: string; description: string };
 export type RequestDeleteBookActionPayload = { spaceId: number; bookId: number };
@@ -102,24 +102,24 @@ export type RequestDeleteQuoteCommentActionPayload = {
 };
 
 export type RequestGetSpaceSuccessActionPayload =
-export type RequestUpdateSapceSuccessActionPayload =
+export type RequestUpdateSpaceSuccessActionPayload = {message:string}
 export type RequestGetBookSuccessActionPayload =
-export type RequestAddBookSuccessActionPayload =
-export type RequestDeleteBookSuccessActionPayload =
-export type RequestAddReviewSuccessActionPayload =
-export type RequestUpdateReviewSuccessActionPayload =
-export type RequestDeleteReviewSuccessActionPayload =
+export type RequestAddBookSuccessActionPayload = number
+export type RequestDeleteBookSuccessActionPayload ={message:string}
+export type RequestAddReviewSuccessActionPayload =number
+export type RequestUpdateReviewSuccessActionPayload ={message:string}
+export type RequestDeleteReviewSuccessActionPayload ={message:string}
 export type RequestGetAllReviewCommentsSuccessActionPayload =
-export type RequestAddReviewCommentSuccessActionPayload =
-export type RequestUpdateReviewCommentSuccessActionPayload =
-export type RequestDeleteReviewCommentSuccessActionPayload =
-export type RequestAddQuoteSuccessActionPayload =
-export type RequestUpdateQuoteSuccessActionPayload =
-export type RequestDeleteQuoteSuccessActionPayload =
+export type RequestAddReviewCommentSuccessActionPayload =number
+export type RequestUpdateReviewCommentSuccessActionPayload ={message:string}
+export type RequestDeleteReviewCommentSuccessActionPayload ={message:string}
+export type RequestAddQuoteSuccessActionPayload =number
+export type RequestUpdateQuoteSuccessActionPayload ={message:string}
+export type RequestDeleteQuoteSuccessActionPayload ={message:string}
 export type RequestGetAllQuoteCommentsSuccessActionPayload =
-export type RequestAddQuoteCommentSuccessActionPayload =
-export type RequestUpdateQuoteCommentSuccessActionPayload =
-export type RequestDeleteQuoteCommentSuccessActionPayload =
+export type RequestAddQuoteCommentSuccessActionPayload =number
+export type RequestUpdateQuoteCommentSuccessActionPayload ={message:string}
+export type RequestDeleteQuoteCommentSuccessActionPayload ={message:string}
 
 export function requestGetSpace({ spaceId }) {
   return <const>{
