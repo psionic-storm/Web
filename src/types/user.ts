@@ -1,6 +1,7 @@
 export interface User {
   id: number;
-  loginId: string;
+  loginId?: string;
+  login_id?: string;
   nickname: string;
-  iat: number;
+  iat?: number;
 }
