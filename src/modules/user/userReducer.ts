@@ -1,18 +1,12 @@
+import { User } from 'Types/user';
 import { UserAction } from './userActions';
 import ActionTypes from './userActionTypes';
-
-interface UserInfo {
-  id: number;
-  loginId: string;
-  nickname: string;
-  iat: number;
-}
 
 interface UserState {
   error?: Error;
   isSignUpSuccess?: boolean;
   isSignedIn?: boolean;
-  userInfo?: UserInfo;
+  userInfo?: User;
 }
 
 const initialState = {};
