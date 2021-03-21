@@ -7,11 +7,13 @@ import squareSaga from './square/squareSaga';
 import squareReducer from './square/squareReducer';
 import spaceSaga from './space/spaceSaga';
 import spaceReducer from './space/spaceReducer';
+import salonSaga from './salon/salonSaga';
+import salonReducer from './salon/salonReducer';
 
-const rootReducer = combineReducers({ modalReducer, userReducer, squareReducer, spaceReducer });
+const rootReducer = combineReducers({ modalReducer, userReducer, squareReducer, spaceReducer, salonReducer });
 
 export function* rootSaga() {
-  yield all([userSaga(), squareSaga(), spaceSaga()]);
+  yield all([userSaga(), squareSaga(), spaceSaga(), salonSaga()]);
 }
 
 export type RootState = ReturnType<typeof rootReducer>;
