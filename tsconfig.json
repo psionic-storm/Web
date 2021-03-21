@@ -25,7 +25,8 @@
       "Elements*": ["src/elements*"],
       "Components*": ["src/components*"],
       "Apis*": ["src/apis*"],
-      "Assets*": ["src/assets*"]
+      "Assets*": ["src/assets*"],
+      "Types*": ["src/types*"]
     }
   },
   "include": ["src"]

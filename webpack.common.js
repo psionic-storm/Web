@@ -20,6 +20,7 @@ const config = {
       Components: path.resolve(__dirname, './src/components'),
       Apis: path.resolve(__dirname, './src/apis'),
       Assets: path.resolve(__dirname, './src/assets'),
+      Types: path.resolve(__dirname, './src/types'),
     },
   },
 

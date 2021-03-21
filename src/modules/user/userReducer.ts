@@ -1,6 +1,6 @@
-import { User } from 'Types/user';
 import { UserAction } from './userActions';
 import ActionTypes from './userActionTypes';
+import { User } from 'Types/user';
 
 interface UserState {
   error?: Error;
