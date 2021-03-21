@@ -1,6 +1,8 @@
 import { Review } from 'Types/review';
 import { Quote } from 'Types/quote';
 import ActionTypes from './spaceActionTypes';
+import { Space } from 'Types/space';
+import { Book } from 'Types/book';
 
 export type SpaceAction =
   | ReturnType<typeof requestGetSpaceSuccess>
@@ -101,22 +103,22 @@ export type RequestDeleteQuoteCommentActionPayload = {
   commentId: number;
 };
 
-export type RequestGetSpaceSuccessActionPayload =
+export type RequestGetSpaceSuccessActionPayload = Space
 export type RequestUpdateSpaceSuccessActionPayload = {message:string}
-export type RequestGetBookSuccessActionPayload =
+export type RequestGetBookSuccessActionPayload =Book
 export type RequestAddBookSuccessActionPayload = number
 export type RequestDeleteBookSuccessActionPayload ={message:string}
 export type RequestAddReviewSuccessActionPayload =number
 export type RequestUpdateReviewSuccessActionPayload ={message:string}
 export type RequestDeleteReviewSuccessActionPayload ={message:string}
-export type RequestGetAllReviewCommentsSuccessActionPayload =
+export type RequestGetAllReviewCommentsSuccessActionPayload = Comment
 export type RequestAddReviewCommentSuccessActionPayload =number
 export type RequestUpdateReviewCommentSuccessActionPayload ={message:string}
 export type RequestDeleteReviewCommentSuccessActionPayload ={message:string}
 export type RequestAddQuoteSuccessActionPayload =number
 export type RequestUpdateQuoteSuccessActionPayload ={message:string}
 export type RequestDeleteQuoteSuccessActionPayload ={message:string}
-export type RequestGetAllQuoteCommentsSuccessActionPayload =
+export type RequestGetAllQuoteCommentsSuccessActionPayload =Comment
 export type RequestAddQuoteCommentSuccessActionPayload =number
 export type RequestUpdateQuoteCommentSuccessActionPayload ={message:string}
 export type RequestDeleteQuoteCommentSuccessActionPayload ={message:string}
