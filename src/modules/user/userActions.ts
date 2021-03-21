@@ -1,12 +1,12 @@
 import ActionTypes from './userActionTypes';
 
 export type UserAction =
-  | RequestSignUpAction
   | ReturnType<typeof requestSignUpSuccess>
   | ReturnType<typeof requestSignUpFailure>
-  | RequestSignInAction
   | ReturnType<typeof requestSignInSuccess>
-  | ReturnType<typeof requestSignInFailure>;
+  | ReturnType<typeof requestSignInFailure>
+  | ReturnType<typeof requestGetCurrentUserSuccess>
+  | ReturnType<typeof requestGetCurrentUserFailure>;
 
 export type RequestSignUpAction = ReturnType<typeof requestSignUp>;
 export type RequestSignInAction = ReturnType<typeof requestSignIn>;
@@ -18,6 +18,9 @@ export type RequestSignUpFailureActionPayload = Error;
 export type RequestSignInActionPayload = { loginId: string; password: string };
 export type RequestSignInSuccessActionPayload = { accessToken: string };
 export type RequestSignInFailureActionPayload = Error;
+
+export type RequestGetCurrentUserSuccessActionPayload = { id: number; loginId: string; nickname: string; iat: number };
+export type RequestGetCurrentUserFailureActionPayload = Error;
 
 export function requestSignUp({ loginId, password, nickname }: RequestSignUpActionPayload) {
   return <const>{
@@ -64,6 +67,31 @@ export function requestSignInSuccess(accessToken: RequestSignInSuccessActionPayl
 export function requestSignInFailure(error: RequestSignInFailureActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_SIGN_IN_FAILURE,
+    payload: { error },
+  };
+}
+
+export function requestGetCurrentUser() {
+  return <const>{
+    type: ActionTypes.REQUEST_GET_CURRENT_USER,
+  };
+}
+
+export function requestGetCurrentUserSuccess({
+  id,
+  loginId,
+  nickname,
+  iat,
+}: RequestGetCurrentUserSuccessActionPayload) {
+  return <const>{
+    type: ActionTypes.REQUEST_GET_CURRENT_USER_SUCCESS,
+    payload: { id, loginId, nickname, iat },
+  };
+}
+
+export function requestGetCurrentUserFailure(error: RequestGetCurrentUserFailureActionPayload) {
+  return <const>{
+    type: ActionTypes.REQUEST_GET_CURRENT_USER_FAILURE,
     payload: { error },
   };
 }

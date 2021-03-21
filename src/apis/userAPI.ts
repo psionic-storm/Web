@@ -1,4 +1,4 @@
-import { RequestSignUpActionPayload } from 'Modules/user/userActions';
+import { RequestSignInActionPayload, RequestSignUpActionPayload } from 'Modules/user/userActions';
 import { psionicStorm, psionicStormAuth } from './base';
 
 export async function signUp({ loginId, password, nickname }: RequestSignUpActionPayload) {
@@ -7,7 +7,7 @@ export async function signUp({ loginId, password, nickname }: RequestSignUpActio
   return data;
 }
 
-export async function signIn({ loginId, password }: any) {
+export async function signIn({ loginId, password }: RequestSignInActionPayload) {
   const { data } = await psionicStorm.post('/user/signIn', { loginId, password });
   return data;
 }

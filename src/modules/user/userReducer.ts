@@ -1,10 +1,18 @@
 import { UserAction } from './userActions';
 import ActionTypes from './userActionTypes';
 
+interface UserInfo {
+  id: number;
+  loginId: string;
+  nickname: string;
+  iat: number;
+}
+
 interface UserState {
   error?: Error;
   isSignUpSuccess?: boolean;
   isSignedIn?: boolean;
+  userInfo?: UserInfo;
 }
 
 const initialState = {};
@@ -27,6 +35,16 @@ function userReducer(state: UserState = initialState, action: UserAction): UserS
         isSignedIn: true,
       };
     case ActionTypes.REQUEST_SIGN_IN_FAILURE:
+      return {
+        ...state,
+        error: action.payload.error,
+      };
+    case ActionTypes.REQUEST_GET_CURRENT_USER_SUCCESS:
+      return {
+        ...state,
+        userInfo: action.payload,
+      };
+    case ActionTypes.REQUEST_GET_CURRENT_USER_FAILURE:
       return {
         ...state,
         error: action.payload.error,

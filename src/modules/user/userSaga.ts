@@ -10,6 +10,9 @@ import {
   RequestSignInAction,
   RequestSignUpSuccessActionPayload,
   RequestSignInSuccessActionPayload,
+  requestGetCurrentUserSuccess,
+  requestGetCurrentUserFailure,
+  RequestGetCurrentUserSuccessActionPayload,
 } from './userActions';
 
 function* requestSignUpSaga({ payload }: RequestSignUpAction) {
@@ -30,7 +33,17 @@ function* requestSignInSaga({ payload }: RequestSignInAction) {
   }
 }
 
+function* requestGetCurrentUserSaga() {
+  try {
+    const response: RequestGetCurrentUserSuccessActionPayload = yield call(userAPI.getCurrentUser);
+    yield put(requestGetCurrentUserSuccess(response));
+  } catch (e) {
+    yield put(requestGetCurrentUserFailure(e));
+  }
+}
+
 export default function* userSaga() {
   yield takeLatest(ActionTypes.REQUEST_SIGN_UP, requestSignUpSaga);
   yield takeLatest(ActionTypes.REQUEST_SIGN_IN, requestSignInSaga);
+  yield takeLatest(ActionTypes.REQUEST_GET_CURRENT_USER, requestGetCurrentUserSaga);
 }
