@@ -18,6 +18,12 @@ export async function updateSalon({ salonId, name }: any) {
   return data;
 }
 
+export async function deleteSalon({ salonId, name }: any) {
+  const { data } = await psionicStormAuth.patch(`/salon/${salonId}`, { name });
+  console.log(data);
+  return data;
+}
+
 export async function getBook({ salonId, bookId }: any) {
   const { data } = await psionicStormAuth.get(`/salon/${salonId}/book/${bookId}`);
   console.log(data);

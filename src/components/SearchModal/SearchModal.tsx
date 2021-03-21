@@ -11,7 +11,7 @@ function SearchModal() {
     imgSrc: 'http://image.kyobobook.co.kr/images/book/large/109/l9788983976109.jpg',
     title: '스타크래프트',
     subTitle: 'Granzort',
-    description: "this is closest i'v ever gotten to a college graduation.",
+    description: "this is the closest i'v ever gotten to a college graduation.",
   };
   return (
     <S.Container onClick={handleCloseModal}>
