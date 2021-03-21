@@ -6,16 +6,19 @@ import { addBook, getBook, getSpace, updateSpace } from 'Apis/spaceAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestSignUp } from 'Modules/user/userActions';
 import useUser from 'Hooks/redux/useUser';
+import useSquare from 'Hooks/redux/useSquare';
 
 function App() {
   const { signIn } = useUser();
+  const { getAllReviews, reviews } = useSquare();
   const body = {
     loginId: 'asddddaddf',
     password: 'gggg',
   };
 
   useEffect(() => {
-    signIn(body);
+    // signIn(body);
+    getAllReviews();
   }, []);
 
   return (
