@@ -36,7 +36,6 @@ function* requestSignInSaga({ payload }: RequestSignInAction) {
 function* requestGetCurrentUserSaga() {
   try {
     const response: RequestGetCurrentUserSuccessActionPayload = yield call(userAPI.getCurrentUser);
-    console.log(response);
     yield put(requestGetCurrentUserSuccess(response));
   } catch (e) {
     yield put(requestGetCurrentUserFailure(e));

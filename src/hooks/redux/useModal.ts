@@ -8,7 +8,6 @@ function useModal() {
   const dispatch = useDispatch();
 
   const handleOpenModal = useCallback(() => {
-    console.log('asdf');
     dispatch(openModal());
   }, [dispatch]);
 

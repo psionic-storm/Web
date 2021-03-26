@@ -13,7 +13,6 @@ function SquarePage() {
   const dispatch = useDispatch();
   const category = search.split('=')[1];
   const { reviews, quotes } = useSelector((state: RootState) => state.squareReducer);
-  console.log(reviews);
 
   const renderPosts = useMemo(() => {
     if (category === 'reviews' && reviews) {
@@ -31,6 +30,7 @@ function SquarePage() {
       return;
     }
     if (category == 'quotes' && !quotes) {
+      console.log('이거보자');
       dispatch(requestGetAllQuotes());
     }
   }, [category, dispatch, reviews, quotes]);
