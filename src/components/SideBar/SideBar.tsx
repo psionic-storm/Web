@@ -1,19 +1,17 @@
 import React, { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import * as S from './SideBarStyle';
 
 function SideBar() {
-  const dispatch = useDispatch();
   const history = useHistory();
 
   const handleClickReviewBtn = useCallback(() => {
     history.push('/square?category=reviews');
-  }, [dispatch, history]);
+  }, [history]);
 
   const handleClickQuoteBtn = useCallback(() => {
     history.push('/square?category=quotes');
-  }, [dispatch, history]);
+  }, [history]);
 
   return (
     <S.Container>
