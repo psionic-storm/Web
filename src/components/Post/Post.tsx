@@ -1,49 +1,42 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Avatar from 'Elements/svg/UserAvatar/UserAvatar';
 import * as S from './PostStyle';
+import { Review } from 'Types/review';
+import { Quote } from 'Types/quote';
 
-function Post() {
+interface PostProps {
+  type: 'review' | 'quote';
+  review?: Review;
+  quote?: Quote;
+}
+
+function Post({ review, quote, type }: PostProps) {
+  const renderSalonOrSpaceName = useMemo(() => {
+    if (type === 'review') {
+      return review?.space ? review.space : review?.salon;
+    }
+    if (type === 'quote') {
+      return quote?.space ? quote.space : quote?.salon;
+    }
+    return 'Ghost';
+  }, [review, quote, type]);
+
   return (
     <S.Container>
       <S.PostHeader>
         <Avatar />
         <S.PostInfo>
           <S.WriterInfo>
-            <S.WriterName>Granzort</S.WriterName>
-            <S.SalonOrSpaceName>Granzort Space</S.SalonOrSpaceName>
-            <S.BookTitle>Also sprach Zarathustra</S.BookTitle>
+            <S.WriterName>{type === 'review' ? review?.reviewer : quote?.quoter}</S.WriterName>
+            <S.SalonOrSpaceName>{renderSalonOrSpaceName}</S.SalonOrSpaceName>
+            <S.BookTitle>{type === 'review' ? review?.book_title : quote?.book_title}</S.BookTitle>
           </S.WriterInfo>
-          <S.CreatedDate>March 7, 2021</S.CreatedDate>
+          <S.CreatedDate>{type === 'review' ? review?.updated_at : quote?.updated_at}</S.CreatedDate>
         </S.PostInfo>
       </S.PostHeader>
       <S.Post>
-        <S.PostTitle>Hello! My name is Zaratustra, a crazy guy</S.PostTitle>
-        <S.PostContent>
-          Thunderbot and lightning very very frightening me Thunderbot and
-          lightning very very frightening me gggThunderbot and lightning very
-          very frightening me Thunderbot and lightning very very frightening me
-          Thunderbot and lightning very very frightening me Thunderbot and
-          lightning very very frightening me Thunderbot and lightning very very
-          frightening me Thunderbot and lightning very very frightening me
-          Thunderbot and lightning very very frightening me Thunderbot and
-          lightning very very frightening me Thunderbot and lightning very very
-          frightening me Thunderbot and lightning very very frightening me
-          Thunderbot and lightning very very frightening me Thunderbot and
-          lightning very very frightening me Thunderbot and lightning very very
-          frightening me Thunderbot and lightning very very frightening me
-          Thunderbot and lightning very very frightening me Thunderbot and
-          lightning very very frightening me Thunderbot and lightning very very
-          frightening me Thunderbot and lightning very very frightening me
-          Thunderbot and lightning very very frightening me Thunderbot and
-          lightning very very frightening me Thunderbot and lightning very very
-          frightening me Thunderbot and lightning very very frightening me
-          Thunderbot and lightning very very frightening me Thunderbot and
-          lightning very very frightening me Thunderbot and lightning very very
-          frightening me Thunderbot and lightning very very frightening me
-          Thunderbot and lightning very very frightening me Thunderbot and
-          lightning very very frightening me Thunderbot and lightning very very
-          frightening me Thunderbot and lightning very very frightening me{' '}
-        </S.PostContent>
+        <S.PostTitle>{type === 'review' && review?.title}</S.PostTitle>
+        <S.PostContent>{type === 'review' ? review?.content : quote?.content}</S.PostContent>
       </S.Post>
     </S.Container>
   );
