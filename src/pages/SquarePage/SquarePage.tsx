@@ -16,10 +16,10 @@ function SquarePage() {
 
   const renderPosts = useMemo(() => {
     if (category === 'reviews' && reviews) {
-      return reviews.map((review) => <Post key={review.id} type="review" review={review}></Post>);
+      return reviews.map((review) => <Post key={review.id} type="review" postItem={review}></Post>);
     }
     if (category === 'quotes' && quotes) {
-      return quotes.map((quote) => <Post key={quote.id} type="quote" quote={quote}></Post>);
+      return quotes.map((quote) => <Post key={quote.id} type="quote" postItem={quote}></Post>);
     }
     return <></>;
   }, [category, reviews, quotes]);

@@ -1,42 +1,50 @@
-import React, { useMemo } from 'react';
-import Avatar from 'Elements/svg/UserAvatar/UserAvatar';
+import React, { useMemo, useCallback } from 'react';
+import UserAvatar from 'Elements/svg/UserAvatar/UserAvatar';
 import * as S from './PostStyle';
 import { Review } from 'Types/review';
 import { Quote } from 'Types/quote';
+import { useHistory } from 'react-router';
 
 interface PostProps {
   type: 'review' | 'quote';
-  review?: Review;
-  quote?: Quote;
+  postItem: any;
 }
 
-function Post({ review, quote, type }: PostProps) {
+function Post({ postItem, type }: PostProps) {
+  const history = useHistory();
+
   const renderSalonOrSpaceName = useMemo(() => {
-    if (type === 'review') {
-      return review?.space ? review.space : review?.salon;
-    }
-    if (type === 'quote') {
-      return quote?.space ? quote.space : quote?.salon;
+    if (postItem) {
+      return postItem.space ? postItem.space : postItem?.salon;
     }
     return 'Ghost';
-  }, [review, quote, type]);
+  }, [postItem]);
+
+  const goToSpace = useCallback(() => {
+    if (type === 'review') {
+      history.push(`/space/${postItem.reviewer_id}`);
+    }
+    if (type === 'quote') {
+      history.push(`/space/${postItem.quoter_id}`);
+    }
+  }, [history, postItem, type]);
 
   return (
     <S.Container>
       <S.PostHeader>
-        <Avatar />
+        <UserAvatar onClick={goToSpace} />
         <S.PostInfo>
-          <S.WriterInfo>
-            <S.WriterName>{type === 'review' ? review?.reviewer : quote?.quoter}</S.WriterName>
+          <S.WriterInfo onClick={goToSpace}>
+            <S.WriterName>{type === 'review' ? postItem.reviewer : postItem.quoter}</S.WriterName>
             <S.SalonOrSpaceName>{renderSalonOrSpaceName}</S.SalonOrSpaceName>
-            <S.BookTitle>{type === 'review' ? review?.book_title : quote?.book_title}</S.BookTitle>
+            <S.BookTitle>{postItem.book_title}</S.BookTitle>
           </S.WriterInfo>
-          <S.CreatedDate>{type === 'review' ? review?.updated_at : quote?.updated_at}</S.CreatedDate>
+          <S.CreatedDate>{postItem.updated_at}</S.CreatedDate>
         </S.PostInfo>
       </S.PostHeader>
       <S.Post>
-        <S.PostTitle>{type === 'review' && review?.title}</S.PostTitle>
-        <S.PostContent>{type === 'review' ? review?.content : quote?.content}</S.PostContent>
+        <S.PostTitle>{postItem.title && postItem.title}</S.PostTitle>
+        <S.PostContent>{postItem.content}</S.PostContent>
       </S.Post>
     </S.Container>
   );

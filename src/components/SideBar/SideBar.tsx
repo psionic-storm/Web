@@ -26,9 +26,13 @@ function SideBar() {
 
   return (
     <S.Container>
-      <S.Button onClick={handleClickReviewBtn}>Review</S.Button>
-      <S.Button onClick={handleClickQuoteBtn}>Quote</S.Button>
-      <S.Button>Discussion</S.Button>
+      <S.Button onClick={handleClickReviewBtn} selectedCategory={category}>
+        Reviews
+      </S.Button>
+      <S.Button onClick={handleClickQuoteBtn} selectedCategory={category}>
+        Quotes
+      </S.Button>
+      <S.Button>Discussions</S.Button>
     </S.Container>
   );
 }

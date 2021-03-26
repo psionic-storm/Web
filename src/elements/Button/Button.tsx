@@ -5,20 +5,20 @@ import * as S from './ButtonStyle';
 interface ButtonProps {
   children?: string;
   to?: any;
+  selectedCategory?: string;
   onClick?: () => void;
 }
 
 function Button(props: ButtonProps) {
-  const { to } = props;
-
+  const { children, to } = props;
   return (
     <>
       {to ? (
         <Link to={to}>
-          <S.Button {...props} />
+          <S.Button {...props}>{children}</S.Button>
         </Link>
       ) : (
-        <S.Button {...props} />
+        <S.Button {...props}>{children}</S.Button>
       )}
     </>
   );

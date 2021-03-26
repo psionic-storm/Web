@@ -2,6 +2,7 @@ export interface Review {
   id: number;
   title: string;
   content: string;
+  reviewer_id: number;
   reviewer: string;
   created_at: string;
   updated_at: string;
