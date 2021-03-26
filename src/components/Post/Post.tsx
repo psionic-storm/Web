@@ -13,6 +13,7 @@ interface PostProps {
 
 function Post({ review, quote, type }: PostProps) {
   const history = useHistory();
+  console.log(review);
 
   const renderSalonOrSpaceName = useMemo(() => {
     if (type === 'review') {

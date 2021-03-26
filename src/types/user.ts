@@ -3,5 +3,5 @@ export interface User {
   loginId?: string;
   login_id?: string;
   nickname: string;
-  iat?: number;
+  spaceId: number;
 }

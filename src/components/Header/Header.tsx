@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import HeaderBlock from 'Elements/HeaderBlock/HeaderBlock';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import * as S from './HeaderStyle';
 import SearchBar from 'Elements/SearchBar/SearchBar';
 import Avatar from 'Elements/svg/UserAvatar/UserAvatar';
@@ -9,13 +9,18 @@ import { RootState } from 'Modules';
 
 function Header() {
   const { pathname } = useLocation();
-  const { isSignedIn } = useSelector((state: RootState) => state.userReducer);
+  const history = useHistory();
+  const { isSignedIn, userInfo } = useSelector((state: RootState) => state.userReducer);
 
   const renderSearchBar = useMemo(() => {
     if (!(pathname === '/signIn' || pathname === '/signUp')) {
       return <SearchBar />;
     }
   }, [pathname]);
+
+  const handleClickAvatar = useCallback(() => {
+    history.push(`/space/${userInfo?.spaceId}`);
+  }, [history, userInfo]);
 
   return (
     <>
@@ -27,9 +32,7 @@ function Header() {
           {renderSearchBar}
         </S.LogoAndSearchBarWrapper>
         {isSignedIn ? (
-          <Link to="/space">
-            <Avatar />
-          </Link>
+          <Avatar onClick={handleClickAvatar} />
         ) : (
           <Link to="/signIn">
             <S.SignInButton>Sign In</S.SignInButton>

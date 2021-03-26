@@ -28,6 +28,7 @@ function* requestSignInSaga({ payload }: RequestSignInAction) {
     const { accessToken } = yield call(userAPI.signIn, payload);
     yield localStorage.setItem('accessToken', accessToken);
     yield put(requestSignInSuccess());
+    yield takeLatest(ActionTypes.REQUEST_GET_CURRENT_USER, requestGetCurrentUserSaga);
   } catch (e) {
     yield put(requestSignInFailure(e));
   }

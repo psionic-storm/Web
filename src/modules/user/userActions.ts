@@ -16,7 +16,12 @@ export type RequestSignUpSuccessActionPayload = number;
 
 export type RequestSignInActionPayload = { loginId: string; password: string };
 
-export type RequestGetCurrentUserSuccessActionPayload = { id: number; loginId: string; nickname: string; iat: number };
+export type RequestGetCurrentUserSuccessActionPayload = {
+  id: number;
+  loginId: string;
+  nickname: string;
+  spaceId: number;
+};
 
 export function requestSignUp({ loginId, password, nickname }: RequestSignUpActionPayload) {
   return <const>{
@@ -76,11 +81,11 @@ export function requestGetCurrentUserSuccess({
   id,
   loginId,
   nickname,
-  iat,
+  spaceId,
 }: RequestGetCurrentUserSuccessActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_GET_CURRENT_USER_SUCCESS,
-    payload: { id, loginId, nickname, iat },
+    payload: { id, loginId, nickname, spaceId },
   };
 }
 

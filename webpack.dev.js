@@ -7,7 +7,7 @@ module.exports = merge(commonConfig, {
   devtool: 'inline-source-map',
 
   devServer: {
-    contentBase: path.resolve(__dirname, './client/public'),
+    contentBase: path.resolve(__dirname, './public'),
     port: 3000,
     hot: true,
     historyApiFallback: true,

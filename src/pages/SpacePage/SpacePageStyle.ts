@@ -6,6 +6,8 @@ export const Container = styled.div`
   justify-content: center;
 `;
 
+export const SpaceName = styled.p``;
+
 export const ContentWrapper = styled.div`
   width: 1200px;
 `;

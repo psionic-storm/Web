@@ -9,7 +9,10 @@ interface UserState {
   userInfo?: User;
 }
 
-const initialState = {};
+const initialState = {
+  isSignUpSuccess: false,
+  isSignedIn: false,
+};
 
 function userReducer(state: UserState = initialState, action: UserAction): UserState {
   switch (action.type) {
@@ -37,11 +40,13 @@ function userReducer(state: UserState = initialState, action: UserAction): UserS
     case ActionTypes.REQUEST_GET_CURRENT_USER_SUCCESS:
       return {
         ...state,
+        isSignedIn: action.payload.id ? true : false,
         userInfo: action.payload,
       };
     case ActionTypes.REQUEST_GET_CURRENT_USER_FAILURE:
       return {
         ...state,
+        isSignedIn: false,
         error: action.payload.error,
       };
     default:
