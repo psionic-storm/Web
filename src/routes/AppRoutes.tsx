@@ -9,7 +9,7 @@ import SalonPage from 'Pages/SalonPage/SalonPage';
 function AppRoutes() {
   return (
     <Switch>
-      <Route path="/" exact>
+      <Route path="/square" exact>
         <SquarePage />
       </Route>
       <Route path="/signUp">

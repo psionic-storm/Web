@@ -5,6 +5,7 @@ import * as S from './ButtonStyle';
 interface ButtonProps {
   children?: string;
   to?: any;
+  onClick?: () => void;
 }
 
 function Button(props: ButtonProps) {

@@ -36,7 +36,7 @@ export function requestSignUpSuccess(userId: RequestSignUpSuccessActionPayload) 
   };
 }
 
-export function requestSignUpFailure(error: Error) {
+export function requestSignUpFailure(error: { message: string }) {
   return <const>{
     type: ActionTypes.REQUEST_SIGN_UP_FAILURE,
     payload: { error },

@@ -3,7 +3,7 @@ import ActionTypes from './userActionTypes';
 import { User } from 'Types/user';
 
 interface UserState {
-  error?: Error;
+  error?: any;
   isSignUpSuccess?: boolean;
   isSignedIn?: boolean;
   userInfo?: User;
@@ -21,6 +21,7 @@ function userReducer(state: UserState = initialState, action: UserAction): UserS
     case ActionTypes.REQUEST_SIGN_UP_FAILURE:
       return {
         ...state,
+        isSignUpSuccess: false,
         error: action.payload.error,
       };
     case ActionTypes.REQUEST_SIGN_IN_SUCCESS:

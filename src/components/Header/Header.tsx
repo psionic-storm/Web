@@ -4,9 +4,12 @@ import { Link, useLocation } from 'react-router-dom';
 import * as S from './HeaderStyle';
 import SearchBar from 'Elements/SearchBar/SearchBar';
 import Avatar from 'Elements/svg/UserAvatar/UserAvatar';
+import { useSelector } from 'react-redux';
+import { RootState } from 'Modules';
 
 function Header() {
   const { pathname } = useLocation();
+  const { isSignedIn } = useSelector((state: RootState) => state.userReducer);
 
   const renderSearchBar = useMemo(() => {
     if (!(pathname === '/signIn' || pathname === '/signUp')) {
@@ -23,12 +26,15 @@ function Header() {
           </Link>
           {renderSearchBar}
         </S.LogoAndSearchBarWrapper>
-        <Link to="/signIn">
-          <S.SignInButton>Sign In</S.SignInButton>
-        </Link>
-        <Link to="/space">
-          <Avatar />
-        </Link>
+        {isSignedIn ? (
+          <Link to="/space">
+            <Avatar />
+          </Link>
+        ) : (
+          <Link to="/signIn">
+            <S.SignInButton>Sign In</S.SignInButton>
+          </Link>
+        )}
       </S.Container>
       <HeaderBlock />
     </>
