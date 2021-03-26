@@ -21,7 +21,7 @@ function Header() {
     <>
       <S.Container>
         <S.LogoAndSearchBarWrapper>
-          <Link to="/square">
+          <Link to="/square?category=reviews">
             <S.Logo>PsionicStorm</S.Logo>
           </Link>
           {renderSearchBar}
