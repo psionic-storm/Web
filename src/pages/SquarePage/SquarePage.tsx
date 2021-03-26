@@ -25,15 +25,14 @@ function SquarePage() {
   }, [category, reviews, quotes]);
 
   useEffect(() => {
-    if (category === 'reviews' && !reviews) {
+    if (category === 'reviews') {
       dispatch(requestGetAllReviews());
       return;
     }
-    if (category == 'quotes' && !quotes) {
-      console.log('이거보자');
+    if (category == 'quotes') {
       dispatch(requestGetAllQuotes());
     }
-  }, [category, dispatch, reviews, quotes]);
+  }, [category, dispatch]);
 
   return (
     <>

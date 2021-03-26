@@ -1,4 +1,3 @@
-import { requestGetAllQuotes, requestGetAllReviews } from 'Modules/square/squareActions';
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
@@ -9,12 +8,10 @@ function SideBar() {
   const history = useHistory();
 
   const handleClickReviewBtn = useCallback(() => {
-    dispatch(requestGetAllReviews());
     history.push('/square?category=reviews');
   }, [dispatch, history]);
 
   const handleClickQuoteBtn = useCallback(() => {
-    dispatch(requestGetAllQuotes());
     history.push('/square?category=quotes');
   }, [dispatch, history]);
 
