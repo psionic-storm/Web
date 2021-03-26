@@ -196,7 +196,7 @@ export function requestAddSalonFailure(error: Error) {
 export function requestDeleteSalon({ salonId }: RequestDeleteSalonActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_DELETE_SALON,
-    payload: { salonId, name },
+    payload: { salonId },
   };
 }
 
