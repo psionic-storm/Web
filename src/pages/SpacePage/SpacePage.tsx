@@ -6,17 +6,14 @@ import BookList from 'Components/BookList/BookList';
 import SearchModal from 'Components/SearchModal/SearchModal';
 import Header from 'Components/Header/Header';
 import useModal from 'Hooks/redux/useModal';
-import { useLocation, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestGetSpace } from 'Modules/space/spaceActions';
 import { RootState } from 'Modules';
 
-function SpacePage({ match }: any) {
-  const dd = useLocation();
-  console.log(dd);
+function SpacePage() {
   const { spaceId } = useParams<{ spaceId: string }>();
   const { space } = useSelector((state: RootState) => state.spaceReducer);
-  console.log(spaceId);
 
   const { modalOpen } = useModal();
   const dispatch = useDispatch();
