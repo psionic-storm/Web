@@ -27,11 +27,17 @@ function BookPage() {
           <S.Img src={book?.thumbnail} />
         </S.ImgWrapper>
         <S.PostWrapper>
-          <S.CategoryTitle>Review</S.CategoryTitle>
+          <S.CategoryWrapper>
+            <S.CategoryTitle>Review</S.CategoryTitle>
+            <S.Button>Add Review</S.Button>
+          </S.CategoryWrapper>
           {book?.reviews?.map((review) => (
             <Post key={review.id} type="review" review={review}></Post>
           ))}
-          <S.CategoryTitle>Quote</S.CategoryTitle>
+          <S.CategoryWrapper>
+            <S.CategoryTitle>Quote</S.CategoryTitle>
+            <S.Button>Add Quote</S.Button>
+          </S.CategoryWrapper>
           {book?.quotes?.map((quote) => (
             <Post key={quote.id} type="quote" quote={quote}></Post>
           ))}
