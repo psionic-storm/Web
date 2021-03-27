@@ -1,3 +1,4 @@
+import NoBookImage from 'Elements/svg/NoBookImage/NoBookImage';
 import useModal from 'Hooks/redux/useModal';
 import React from 'react';
 import { Book } from 'Types/book';
@@ -18,9 +19,15 @@ function BookList({ books }: BookListProps) {
         <S.Button onClick={handleOpenModal}>Add Book</S.Button>
       </S.TitleWrapper>
       <S.BookListWrapper>
-        {books?.map((book, idx) => (
-          <S.Img key={idx} src={book.thumbnail} />
-        ))}
+        {books?.map((book) =>
+          book.thumbnail ? (
+            <S.Img key={book.id} src={book.thumbnail} />
+          ) : (
+            <S.NoBookImageWrapper>
+              <NoBookImage />
+            </S.NoBookImageWrapper>
+          ),
+        )}
       </S.BookListWrapper>
     </S.Container>
   );

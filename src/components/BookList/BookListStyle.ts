@@ -38,3 +38,12 @@ export const Img = styled.img`
   cursor: pointer;
   border: 1px solid ${PALETTE.GRAY[3]};
 `;
+
+export const NoBookImageWrapper = styled.div`
+  width: 100%;
+  background-color: ${PALETTE.GRAY[2]};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
