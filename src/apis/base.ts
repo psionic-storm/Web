@@ -4,7 +4,7 @@ export const TOKEN_KEY = 'Authorization';
 
 const devURL = 'http://localhost:';
 const prodURL = '';
-const kakaoBookURL = `https://dapi.kakao.com/v3/search`;
+const kakaoSearchURL = `https://dapi.kakao.com/v3/search`;
 const PORT = 4000;
 
 export const baseURL = process.env.NODE_ENV === 'production' ? prodURL : devURL;
@@ -23,8 +23,8 @@ export const psionicStormAuth = Axios.create({
   },
 });
 
-export const kakaoBook = Axios.create({
-  baseURL: kakaoBookURL,
+export const kakaoSearch = Axios.create({
+  baseURL: kakaoSearchURL,
   headers: {
     Authorization: `KakaoAK ${process.env.KAKAO_API_KEY}`,
     'Content-Type': 'application/json',
