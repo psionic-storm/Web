@@ -10,9 +10,12 @@ interface SpaceState {
   book?: Book;
   comments?: Comment[];
   addedBookId?: number;
+  spaceNameModifiedCount: number;
 }
 
-const initialState = {};
+const initialState = {
+  spaceNameModifiedCount: 0,
+};
 
 function spaceReducer(state: SpaceState = initialState, action: SpaceAction): SpaceState {
   switch (action.type) {
@@ -29,6 +32,7 @@ function spaceReducer(state: SpaceState = initialState, action: SpaceAction): Sp
     case ActionTypes.REQUEST_UPDATE_SPACE_SUCCESS:
       return {
         ...state,
+        spaceNameModifiedCount: state.spaceNameModifiedCount + 1,
       };
     case ActionTypes.REQUEST_UPDATE_SPACE_FAILURE:
       return {

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import ButtonEl from 'Elements/Button/Button';
 import PALETTE from 'Styles/color-variables';
+import InputFormEl from 'Elements/InputForm/InputForm';
 
 export const Container = styled.div`
   display: flex;
@@ -12,6 +13,8 @@ export const SpaceName = styled.p`
   font-weight: bold;
   font-size: 24px;
 `;
+
+export const InputForm = styled(InputFormEl)``;
 
 export const Button = styled(ButtonEl)`
   border: none;
