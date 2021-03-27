@@ -27,12 +27,11 @@ function SearchModal() {
 
   const handleClickBook = useCallback(
     (bookData) => {
-      console.log(bookData);
       if (params.spaceId) {
-        dispatch(requestAddBookSpace({ spaceId: params.spaceId, ...bookData }));
+        dispatch(requestAddBookSpace({ spaceId: parseInt(params.spaceId), ...bookData }));
       }
       if (params.salonId) {
-        dispatch(requestAddBookSalon({ spaceId: params.salonId, ...bookData }));
+        dispatch(requestAddBookSalon({ spaceId: parseInt(params.salonId), ...bookData }));
       }
       dispatch(closeModal());
     },
