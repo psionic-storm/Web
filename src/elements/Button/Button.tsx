@@ -6,7 +6,8 @@ interface ButtonProps {
   children?: string;
   to?: any;
   selectedCategory?: string;
-  onClick?: () => void;
+  className?: string;
+  onClick?: (e: any) => void;
 }
 
 function Button(props: ButtonProps) {
