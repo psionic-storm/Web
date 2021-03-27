@@ -1,6 +1,6 @@
 import NoBookImage from 'Elements/svg/NoBookImage/NoBookImage';
 import useModal from 'Hooks/redux/useModal';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Book } from 'Types/book';
 import * as S from './BookListStyle';
 
