@@ -9,6 +9,7 @@ interface SpaceState {
   space?: Space;
   book?: Book;
   comments?: Comment[];
+  addedBookId?: number;
 }
 
 const initialState = {};
@@ -47,6 +48,7 @@ function spaceReducer(state: SpaceState = initialState, action: SpaceAction): Sp
     case ActionTypes.REQUEST_ADD_BOOK_SUCCESS:
       return {
         ...state,
+        addedBookId: action.payload.addedBookId,
       };
     case ActionTypes.REQUEST_ADD_BOOK_FAILURE:
       return {

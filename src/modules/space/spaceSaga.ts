@@ -111,7 +111,7 @@ function* requestGetBookSaga({ payload }: RequestGetBookAction) {
 function* requestAddBookSaga({ payload }: RequestAddBookAction) {
   try {
     const response: RequestAddBookSuccessActionPayload = yield call(spaceAPI.addBook, payload);
-    yield put(requestAddBookSuccess());
+    yield put(requestAddBookSuccess(response));
   } catch (e) {
     yield put(requestAddBookFailure(e));
   }

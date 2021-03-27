@@ -217,9 +217,10 @@ export function requestAddBook({ spaceId, title, author, description, thumbnail 
   };
 }
 
-export function requestAddBookSuccess() {
+export function requestAddBookSuccess(addedBookId: RequestAddBookSuccessActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_ADD_BOOK_SUCCESS,
+    payload: { addedBookId },
   };
 }
 

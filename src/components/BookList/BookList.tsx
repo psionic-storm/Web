@@ -1,6 +1,6 @@
 import NoBookImage from 'Elements/svg/NoBookImage/NoBookImage';
 import useModal from 'Hooks/redux/useModal';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Book } from 'Types/book';
 import * as S from './BookListStyle';
 
@@ -10,7 +10,6 @@ interface BookListProps {
 
 function BookList({ books }: BookListProps) {
   const { handleOpenModal } = useModal();
-  console.log(books);
 
   return (
     <S.Container>
@@ -23,7 +22,7 @@ function BookList({ books }: BookListProps) {
           book.thumbnail ? (
             <S.Img key={book.id} src={book.thumbnail} />
           ) : (
-            <S.NoBookImageWrapper>
+            <S.NoBookImageWrapper key={book.id}>
               <NoBookImage />
             </S.NoBookImageWrapper>
           ),

@@ -13,14 +13,14 @@ import { RootState } from 'Modules';
 
 function SpacePage() {
   const { spaceId } = useParams<{ spaceId: string }>();
-  const { space } = useSelector((state: RootState) => state.spaceReducer);
+  const { space, addedBookId } = useSelector((state: RootState) => state.spaceReducer);
 
   const { modalOpen } = useModal();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(requestGetSpace({ spaceId: parseInt(spaceId) }));
-  }, [dispatch, spaceId]);
+  }, [dispatch, spaceId, addedBookId]);
 
   return (
     <>
