@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import PALETTE from 'Styles/color-variables';
 
 export const Container = styled.div`
-  margin-top: 40px;
 `;
 
 export const TitleWrapper = styled.div`
