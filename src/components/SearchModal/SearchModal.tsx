@@ -26,10 +26,10 @@ function SearchModal() {
         <S.CardList>
           {searchedBooks.map((book: any) => (
             <Card
-              key={book.isbn + book.title}
+              key={book.isbn + Math.random()}
               imgSrc={book.thumbnail}
               title={book.title}
-              subTitle={book.author}
+              subTitle={book.authors}
               description={book.contents}
             />
           ))}
