@@ -4,7 +4,7 @@ import * as S from './CardStyle';
 interface CardProps {
   imgSrc: string;
   title: string;
-  subTitle: string;
+  subTitle: string | string[];
   description: string;
 }
 

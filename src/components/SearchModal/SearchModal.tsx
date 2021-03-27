@@ -1,28 +1,38 @@
 import Card from 'Elements/Card/Card';
 import SearchBar from 'Elements/SearchBar/SearchBar';
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import * as S from './SearchModalStyle';
 import useModal from 'Hooks/redux/useModal';
+import { searchBook } from 'Apis/kakaoBookAPI';
 
 function SearchModal() {
   const { handleCloseModal } = useModal();
+  const [searchInput, setSearchInput] = useState('');
+  const [searchedBooks, setSearchedBooks] = useState([]);
 
-  const data = {
-    imgSrc: 'http://image.kyobobook.co.kr/images/book/large/109/l9788983976109.jpg',
-    title: '스타크래프트',
-    subTitle: 'Granzort',
-    description: "this is the closest i'v ever gotten to a college graduation.",
-  };
+  const handleSearchBook = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value);
+    if (e.target.value.length) {
+      const { documents } = await searchBook(e.target.value);
+      console.log(documents);
+      setSearchedBooks(documents);
+    }
+  }, []);
+
   return (
     <S.Container onClick={handleCloseModal}>
       <S.ModalContent className="modal-content">
-        <SearchBar placeholder="Search Books.." />
+        <SearchBar placeholder="Search Books.." value={searchInput} onChange={handleSearchBook} />
         <S.CardList>
-          {Array(10)
-            .fill(0)
-            .map((card, idx) => (
-              <Card key={idx} {...data} />
-            ))}
+          {searchedBooks.map((book: any) => (
+            <Card
+              key={book.isbn + book.title}
+              imgSrc={book.thumbnail}
+              title={book.title}
+              subTitle={book.author}
+              description={book.contents}
+            />
+          ))}
         </S.CardList>
       </S.ModalContent>
     </S.Container>

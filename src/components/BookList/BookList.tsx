@@ -14,15 +14,11 @@ function BookList({ books }: BookListProps) {
     <S.Container>
       <S.TitleWrapper>
         <S.Title>Book</S.Title>
-        <S.Button>Add Book</S.Button>
+        <S.Button onClick={handleOpenModal}>Add Book</S.Button>
       </S.TitleWrapper>
       <S.BookListWrapper>
         {books?.map((book, idx) => (
-          <S.Img
-            onClick={handleOpenModal}
-            key={idx}
-            src="http://image.kyobobook.co.kr/images/book/large/109/l9788983976109.jpg"
-          />
+          <S.Img key={idx} src="http://image.kyobobook.co.kr/images/book/large/109/l9788983976109.jpg" />
         ))}
       </S.BookListWrapper>
     </S.Container>
