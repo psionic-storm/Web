@@ -6,6 +6,14 @@ export interface Book {
   title: string;
   author: string;
   description: string;
+  thumbnail?: string;
   reviews?: Review[];
   quotes?: Quote[];
+}
+
+export interface BookData {
+  title: string;
+  author: string;
+  description: string;
+  thumbnail?: string;
 }

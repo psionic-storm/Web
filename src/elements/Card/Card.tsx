@@ -1,19 +1,25 @@
 import NoBookImage from 'Elements/svg/NoBookImage/NoBookImage';
-import React from 'react';
+import React, { useMemo } from 'react';
+import { BookData } from 'Types/book';
 import * as S from './CardStyle';
 
 interface CardProps {
-  imgSrc: string;
   title: string;
-  subTitle: string[];
+  author: string;
   description: string;
+  thumbnail?: string;
+  onClick: (bookData: BookData) => void;
 }
 
-function Card({ imgSrc, title, subTitle, description }: CardProps) {
+function Card({ title, author, description, thumbnail, onClick }: CardProps) {
+  const bookData = useMemo(() => {
+    return { title, author, description, thumbnail };
+  }, [title, author, description, thumbnail]);
+
   return (
-    <S.Container>
-      {imgSrc ? (
-        <S.Img src={imgSrc} />
+    <S.Container onClick={() => onClick(bookData)}>
+      {thumbnail ? (
+        <S.Img src={thumbnail} />
       ) : (
         <S.NoBookImageWrapper>
           <NoBookImage />
@@ -21,7 +27,7 @@ function Card({ imgSrc, title, subTitle, description }: CardProps) {
       )}
       <S.Content>
         <S.Title>{title}</S.Title>
-        <S.SubTitle>{subTitle?.join(', ')}</S.SubTitle>
+        <S.SubTitle>{author}</S.SubTitle>
         <S.Description>{description}</S.Description>
       </S.Content>
     </S.Container>

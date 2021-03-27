@@ -23,7 +23,6 @@ import {
 
 export async function getSpace({ spaceId }: RequestGetSpaceActionPayload) {
   const { data } = await psionicStormAuth.get(`/space/${spaceId}`);
-  console.log(data);
   return data;
 }
 
