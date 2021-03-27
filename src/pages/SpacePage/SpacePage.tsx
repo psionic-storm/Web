@@ -31,7 +31,10 @@ function SpacePage() {
             <Profile name={space?.owner_nickname} loginId={space?.owner_loginId} />
             <AvatarList title="salon" type="salon" />
           </S.ProfileWrapper>
-          <S.SpaceName>{space?.name}</S.SpaceName>
+          <S.SpaceNameWrapper>
+            <S.SpaceName>{space?.name}</S.SpaceName>
+            <S.Button>Edit Space Name</S.Button>
+          </S.SpaceNameWrapper>
           <BookList books={space?.books} />
         </S.ContentWrapper>
         {modalOpen && <SearchModal />}

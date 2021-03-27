@@ -1,6 +1,6 @@
 import ButtonEl from 'Elements/Button/Button';
-import styled from 'styled-components';
 import PALETTE from 'Styles/color-variables';
+import styled from 'styled-components';
 
 export const Container = styled.div``;
 
