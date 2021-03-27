@@ -9,6 +9,7 @@ interface BookListProps {
 
 function BookList({ books }: BookListProps) {
   const { handleOpenModal } = useModal();
+  console.log(books);
 
   return (
     <S.Container>
@@ -18,7 +19,7 @@ function BookList({ books }: BookListProps) {
       </S.TitleWrapper>
       <S.BookListWrapper>
         {books?.map((book, idx) => (
-          <S.Img key={idx} src="http://image.kyobobook.co.kr/images/book/large/109/l9788983976109.jpg" />
+          <S.Img key={idx} src={book.thumbnail} />
         ))}
       </S.BookListWrapper>
     </S.Container>

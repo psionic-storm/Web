@@ -53,11 +53,12 @@ export async function getBook({ salonId, bookId }: RequestGetBookActionPayload) 
   return data;
 }
 
-export async function addBook({ salonId, title, author, description }: RequestAddBookActionPayload) {
+export async function addBook({ salonId, title, author, description, thumbnail }: RequestAddBookActionPayload) {
   const { data } = await psionicStormAuth.post(`/salon/${salonId}/book`, {
     title,
     author,
     description,
+    thumbnail,
   });
   console.log(data);
   return data;

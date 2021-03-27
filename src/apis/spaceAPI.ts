@@ -38,11 +38,12 @@ export async function getBook({ spaceId, bookId }: RequestGetBookActionPayload) 
   return data;
 }
 
-export async function addBook({ spaceId, title, author, description }: RequestAddBookActionPayload) {
+export async function addBook({ spaceId, title, author, description, thumbnail }: RequestAddBookActionPayload) {
   const { data } = await psionicStormAuth.post(`/space/${spaceId}/book`, {
     title,
     author,
     description,
+    thumbnail,
   });
   console.log(data);
   return data;

@@ -74,7 +74,13 @@ export type RequestAddSalonActionPayload = { salonId: number; name: string };
 export type RequestUpdateSalonActionPayload = { salonId: number; name: string };
 export type RequestDeleteSalonActionPayload = { salonId: number };
 export type RequestGetBookActionPayload = { salonId: number; bookId: number };
-export type RequestAddBookActionPayload = { salonId: number; title: string; author: string; description: string };
+export type RequestAddBookActionPayload = {
+  salonId: number;
+  title: string;
+  author: string;
+  description: string;
+  thumbnail: string;
+};
 export type RequestDeleteBookActionPayload = { salonId: number; bookId: number };
 export type RequestAddReviewActionPayload = { salonId: number; bookId: number; title: string; content: string };
 export type RequestUpdateReviewActionPayload = {
@@ -254,10 +260,10 @@ export function requestGetBookFailure(error: Error) {
   };
 }
 
-export function requestAddBook({ salonId, title, author, description }: RequestAddBookActionPayload) {
+export function requestAddBook({ salonId, title, author, description, thumbnail }: RequestAddBookActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_ADD_BOOK,
-    payload: { salonId, title, author, description },
+    payload: { salonId, title, author, description, thumbnail },
   };
 }
 

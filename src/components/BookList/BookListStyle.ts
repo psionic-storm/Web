@@ -2,8 +2,7 @@ import ButtonEl from 'Elements/Button/Button';
 import styled from 'styled-components';
 import PALETTE from 'Styles/color-variables';
 
-export const Container = styled.div`
-`;
+export const Container = styled.div``;
 
 export const TitleWrapper = styled.div`
   display: flex;

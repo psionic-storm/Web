@@ -66,7 +66,13 @@ export type RequestDeleteQuoteCommentAction = ReturnType<typeof requestDeleteQuo
 export type RequestGetSpaceActionPayload = { spaceId: number };
 export type RequestUpdateSpaceActionPayload = { spaceId: number; name: string };
 export type RequestGetBookActionPayload = { spaceId: number; bookId: number };
-export type RequestAddBookActionPayload = { spaceId: number; title: string; author: string; description: string };
+export type RequestAddBookActionPayload = {
+  spaceId: number;
+  title: string;
+  author: string;
+  description: string;
+  thumbnail: string;
+};
 export type RequestDeleteBookActionPayload = { spaceId: number; bookId: number };
 export type RequestAddReviewActionPayload = { spaceId: number; bookId: number; title: string; content: string };
 export type RequestUpdateReviewActionPayload = {
@@ -204,10 +210,10 @@ export function requestGetBookFailure(error: Error) {
   };
 }
 
-export function requestAddBook({ spaceId, title, author, description }: RequestAddBookActionPayload) {
+export function requestAddBook({ spaceId, title, author, description, thumbnail }: RequestAddBookActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_ADD_BOOK,
-    payload: { spaceId, title, author, description },
+    payload: { spaceId, title, author, description, thumbnail },
   };
 }
 

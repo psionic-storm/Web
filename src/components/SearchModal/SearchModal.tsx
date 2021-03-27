@@ -16,7 +16,6 @@ function SearchModal() {
   const [searchedBooks, setSearchedBooks] = useState([]);
   const dispatch = useDispatch();
   const params = useParams<{ spaceId?: string; salonId?: string }>();
-  console.log(params);
 
   const handleSearchBook = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);

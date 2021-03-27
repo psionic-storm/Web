@@ -7,7 +7,7 @@ interface CardProps {
   title: string;
   author: string;
   description: string;
-  thumbnail?: string;
+  thumbnail: string;
   onClick: (bookData: BookData) => void;
 }
 
@@ -18,7 +18,7 @@ function Card({ title, author, description, thumbnail, onClick }: CardProps) {
 
   return (
     <S.Container onClick={() => onClick(bookData)}>
-      {thumbnail ? (
+      {thumbnail.length ? (
         <S.Img src={thumbnail} />
       ) : (
         <S.NoBookImageWrapper>
