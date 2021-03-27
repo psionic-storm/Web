@@ -1,5 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { EnvironmentPlugin } = require('webpack');
 const path = require('path');
+require('dotenv').config();
 
 const config = {
   entry: './src/index',
@@ -37,6 +39,7 @@ const config = {
     ],
   },
   plugins: [
+    new EnvironmentPlugin(['KAKAO_API_KEY']),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
