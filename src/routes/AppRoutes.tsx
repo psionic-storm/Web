@@ -11,7 +11,7 @@ function AppRoutes() {
   return (
     <Switch>
       <Route exact path="/">
-        <Redirect to="/square" />
+        <Redirect to="/square?category=reviews" />
       </Route>
       <Route path="/square" exact>
         <SquarePage />
