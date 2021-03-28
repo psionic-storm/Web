@@ -17,9 +17,15 @@ import { RootState } from 'Modules';
 import PostEditForm from 'Components/PostEditForm/PostEditForm';
 
 function BookPage() {
-  const { book, addedReviewId, addedQuoteId, reviewDeletedCount, quoteDeletedCount } = useSelector(
-    (state: RootState) => state.spaceReducer,
-  );
+  const {
+    book,
+    addedReviewId,
+    addedQuoteId,
+    reviewDeletedCount,
+    quoteDeletedCount,
+    reviewModifiedCount,
+    quoteModifiedCount,
+  } = useSelector((state: RootState) => state.spaceReducer);
   const dispatch = useDispatch();
   const params = useParams<{ spaceId?: string; salonId?: string; bookId: string }>();
   const spaceId = params.spaceId && parseInt(params.spaceId);
@@ -37,8 +43,11 @@ function BookPage() {
   }, [bookId, dispatch, spaceId, addedReviewId, addedQuoteId, reviewDeletedCount, quoteDeletedCount]);
 
   useEffect(() => {
+    if (spaceId) {
+      dispatch(requestGetBookInSpace({ spaceId, bookId }));
+    }
     setEditMode(false);
-  }, []);
+  }, [dispatch, bookId, spaceId, reviewModifiedCount, quoteModifiedCount]);
 
   const handleClickAddPostBtn = useCallback((e) => {
     if (e.target.classList.contains('review')) {
@@ -114,7 +123,7 @@ function BookPage() {
             />
           )}
           {book?.reviews?.map((review) => {
-            if (editType === 'review' && review.id === editPostId) {
+            if (editMode && editType === 'review' && review.id === editPostId) {
               return (
                 <PostEditForm
                   key={review.id}
@@ -151,7 +160,7 @@ function BookPage() {
             />
           )}
           {book?.quotes?.map((quote) => {
-            if (editType === 'quote' && quote.id === editPostId) {
+            if (editMode && editType === 'quote' && quote.id === editPostId) {
               return (
                 <PostEditForm
                   key={quote.id}
