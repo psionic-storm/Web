@@ -36,6 +36,10 @@ function BookPage() {
     }
   }, [bookId, dispatch, spaceId, addedReviewId, addedQuoteId, reviewDeletedCount, quoteDeletedCount]);
 
+  useEffect(() => {
+    setEditMode(false);
+  }, []);
+
   const handleClickAddPostBtn = useCallback((e) => {
     if (e.target.classList.contains('review')) {
       setAddPostType('review');
@@ -50,15 +54,19 @@ function BookPage() {
   }, []);
 
   const handleClickSaveBtn = useCallback(
-    ({ type, title, page, content }) => {
+    ({ type, id, title, page, content }) => {
       if (type === 'review' && spaceId) {
-        dispatch(requestAddReviewInSpace({ spaceId, bookId, title, content }));
+        editMode
+          ? dispatch(requestUpdateReviewInSpace({ spaceId, bookId, reviewId: id, title, content }))
+          : dispatch(requestAddReviewInSpace({ spaceId, bookId, title, content }));
       }
       if (type === 'quote' && spaceId) {
-        dispatch(requestAddQuoteInSpace({ spaceId, bookId, page, content }));
+        editMode
+          ? dispatch(requestUpdateQuoteInSpace({ spaceId, bookId, quoteId: id, page, content }))
+          : dispatch(requestAddQuoteInSpace({ spaceId, bookId, page, content }));
       }
     },
-    [dispatch, spaceId, bookId],
+    [dispatch, spaceId, bookId, editMode],
   );
 
   const handleClickDeletePost = useCallback(
@@ -72,18 +80,6 @@ function BookPage() {
     },
     [dispatch, bookId, spaceId],
   );
-
-  // const handleClickEditPost = useCallback(
-  //   ({ type, id, title, content, page }) => {
-  //     if (type === 'review' && spaceId) {
-  //       dispatch(requestUpdateReviewInSpace({ spaceId, bookId, reviewId: id, title, content }));
-  //     }
-  //     if (type === 'quote' && spaceId) {
-  //       dispatch(requestUpdateQuoteInSpace({ spaceId, bookId, quoteId: id, page, content }));
-  //     }
-  //   },
-  //   [dispatch, bookId, spaceId],
-  // );
 
   const handleClickEditBtn = useCallback((type, id) => {
     setEditMode(true);

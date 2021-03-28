@@ -62,7 +62,17 @@ function PostEditForm({ type, review, quote, handleClickCancelBtn, handleClickSa
       {type === 'review' && renderReviewEditForm}
       {type === 'quote' && renderQuoteEditForm}
       <S.ButtonWrapper>
-        <S.Button onClick={() => handleClickSaveBtn({ type, title: reviewTitle, page: quotePage, content })}>
+        <S.Button
+          onClick={() =>
+            handleClickSaveBtn({
+              type,
+              id: review ? review.id : quote?.id,
+              title: reviewTitle,
+              page: quotePage,
+              content,
+            })
+          }
+        >
           Save
         </S.Button>
         <S.Button onClick={handleClickCancelBtn}>Cancel</S.Button>

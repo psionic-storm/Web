@@ -15,12 +15,16 @@ interface SpaceState {
   spaceNameModifiedCount: number;
   reviewDeletedCount: number;
   quoteDeletedCount: number;
+  reviewModifiedCount: number;
+  quoteModifiedCount: number;
 }
 
 const initialState = {
   spaceNameModifiedCount: 0,
   reviewDeletedCount: 0,
   quoteDeletedCount: 0,
+  reviewModifiedCount: 0,
+  quoteModifiedCount: 0,
 };
 
 function spaceReducer(state: SpaceState = initialState, action: SpaceAction): SpaceState {
@@ -87,6 +91,7 @@ function spaceReducer(state: SpaceState = initialState, action: SpaceAction): Sp
     case ActionTypes.REQUEST_UPDATE_REVIEW_SUCCESS:
       return {
         ...state,
+        reviewModifiedCount: state.reviewModifiedCount + 1,
       };
     case ActionTypes.REQUEST_UPDATE_REVIEW_FAILURE:
       return {
@@ -153,6 +158,7 @@ function spaceReducer(state: SpaceState = initialState, action: SpaceAction): Sp
     case ActionTypes.REQUEST_UPDATE_QUOTE_SUCCESS:
       return {
         ...state,
+        quoteModifiedCount: state.quoteModifiedCount + 1,
       };
     case ActionTypes.REQUEST_UPDATE_QUOTE_FAILURE:
       return {

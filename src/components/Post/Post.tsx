@@ -59,16 +59,6 @@ function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }
     }
   }, [type, review, quote, handleClickDeletePost]);
 
-  // const handleClickEdit = useCallback(() => {
-  //   if (type === 'review' && review) {
-  //     handleClickUpdatePost({type, review.id, });
-  //   }
-
-  //   if (type === 'quote' && quote) {
-  //     handleClickUpdatePost(type, quote.id);
-  //   }
-  // }, [type, review, quote, handleClickDeletePost]);
-
   const handleClickEdit = useCallback(() => {
     if (type === 'review' && review) {
       handleClickEditBtn(type, review.id);
