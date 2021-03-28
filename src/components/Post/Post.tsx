@@ -38,16 +38,17 @@ function Post({ review, quote, type }: PostProps) {
       <S.PostHeader>
         <UserAvatar onClick={goToSpace} />
         <S.PostInfo>
-          <S.WriterInfo onClick={goToSpace}>
-            <S.WriterName>{type === 'review' ? review?.reviewer : quote?.quoter}</S.WriterName>
-            <S.SalonOrSpaceName>{renderSalonOrSpaceName}</S.SalonOrSpaceName>
+          <S.WriterInfo>
+            <S.WriterName onClick={goToSpace}>{type === 'review' ? review?.reviewer : quote?.quoter}</S.WriterName>
+            <S.SalonOrSpaceName onClick={goToSpace}>{renderSalonOrSpaceName}</S.SalonOrSpaceName>
             <S.BookTitle>{type === 'review' ? review?.book_title : quote?.book_title}</S.BookTitle>
           </S.WriterInfo>
           <S.CreatedDate>{type === 'review' ? review?.updated_at : quote?.updated_at}</S.CreatedDate>
         </S.PostInfo>
       </S.PostHeader>
       <S.Post>
-        <S.PostTitle>{type === 'review' && review?.title}</S.PostTitle>
+        {type === 'review' && <S.PostTitle>{review?.title}</S.PostTitle>}
+        {type === 'quote' && <S.PostPage>{quote?.page} page</S.PostPage>}
         <S.PostContent>{type === 'review' ? review?.content : quote?.content}</S.PostContent>
       </S.Post>
     </S.Container>

@@ -55,10 +55,17 @@ export const CreatedDate = styled.div`
 export const Post = styled.div`
   padding: 6px;
 `;
+
 export const PostTitle = styled.div`
   font-size: 16px;
   font-weight: bold;
 `;
+
+export const PostPage = styled.div`
+  font-size: 16px;
+  font-weight: bold;
+`;
+
 export const PostContent = styled.div`
   color: ${PALETTE.GRAY[5]};
   font-size: 16px;
