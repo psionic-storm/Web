@@ -10,6 +10,7 @@ interface SpaceState {
   book?: Book;
   comments?: Comment[];
   addedBookId?: number;
+  addedReviewId?: number;
   spaceNameModifiedCount: number;
 }
 
@@ -71,6 +72,7 @@ function spaceReducer(state: SpaceState = initialState, action: SpaceAction): Sp
     case ActionTypes.REQUEST_ADD_REVIEW_SUCCESS:
       return {
         ...state,
+        addedReviewId: action.payload.addedReviewId,
       };
     case ActionTypes.REQUEST_ADD_REVIEW_FAILURE:
       return {

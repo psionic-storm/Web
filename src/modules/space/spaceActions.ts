@@ -258,9 +258,10 @@ export function requestAddReview({ spaceId, bookId, title, content }: RequestAdd
   };
 }
 
-export function requestAddReviewSuccess() {
+export function requestAddReviewSuccess(addedReviewId: RequestAddReviewCommentSuccessActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_ADD_REVIEW_SUCCESS,
+    payload: { addedReviewId },
   };
 }
 
