@@ -9,9 +9,10 @@ interface PostProps {
   type: 'review' | 'quote';
   review?: Review;
   quote?: Quote;
+  handleClickDeletePost: (type: 'review' | 'quote', reviewId: number) => void;
 }
 
-function Post({ review, quote, type }: PostProps) {
+function Post({ review, quote, type, handleClickDeletePost }: PostProps) {
   const history = useHistory();
 
   const renderSalonOrSpaceName = useMemo(() => {
@@ -33,6 +34,16 @@ function Post({ review, quote, type }: PostProps) {
     }
   }, [history, review, quote, type]);
 
+  const handleClickDelete = useCallback(() => {
+    if (type === 'review' && review) {
+      handleClickDeletePost(type, review.id);
+    }
+
+    if (type === 'quote' && quote) {
+      handleClickDeletePost(type, quote.id);
+    }
+  }, [type, review, quote, handleClickDeletePost]);
+
   return (
     <S.Container>
       <S.PostHeader>
@@ -45,6 +56,7 @@ function Post({ review, quote, type }: PostProps) {
           </S.WriterInfo>
           <S.CreatedDate>{type === 'review' ? review?.updated_at : quote?.updated_at}</S.CreatedDate>
         </S.PostInfo>
+        <S.Button onClick={handleClickDelete}>X</S.Button>
       </S.PostHeader>
       <S.Post>
         {type === 'review' && <S.PostTitle>{review?.title}</S.PostTitle>}

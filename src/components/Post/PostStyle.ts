@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import PALETTE from 'Styles/color-variables';
+import ButtonEl from 'Elements/Button/Button';
 
 export const Container = styled.div`
   width: 800px;
@@ -7,6 +8,7 @@ export const Container = styled.div`
   border-radius: 10px;
   margin: 16px 0 0 0;
   padding: 20px;
+  position: relative;
 `;
 
 export const PostHeader = styled.div`
@@ -64,6 +66,16 @@ export const PostTitle = styled.div`
 export const PostPage = styled.div`
   font-size: 16px;
   font-weight: bold;
+`;
+
+export const Button = styled(ButtonEl)`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 8px;
+  &:hover {
+    background-color: ${PALETTE.GRAY[2]};
+  }
 `;
 
 export const PostContent = styled.div`

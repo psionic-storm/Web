@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   requestAddQuote as requestAddQuoteInSpace,
   requestAddReview as requestAddReviewInSpace,
+  requestDeleteReview as requestDeleteReviewInSpace,
+  requestDeleteQuote as requestDeleteQuoteInSpace,
   requestGetBook as requestGetBookInSpace,
 } from 'Modules/space/spaceActions';
 import { useParams } from 'react-router';
@@ -52,6 +54,18 @@ function BookPage() {
     [dispatch, spaceId, bookId],
   );
 
+  const handleClickDeletePost = useCallback(
+    (type, id) => {
+      if (type === 'review' && spaceId) {
+        dispatch(requestDeleteReviewInSpace({ spaceId, bookId, reviewId: id }));
+      }
+      if (type === 'quote' && spaceId) {
+        dispatch(requestDeleteQuoteInSpace({ spaceId, bookId, quoteId: id }));
+      }
+    },
+    [dispatch, bookId, spaceId],
+  );
+
   return (
     <>
       <Header />
@@ -74,7 +88,7 @@ function BookPage() {
             />
           )}
           {book?.reviews?.map((review) => (
-            <Post key={review.id} type="review" review={review}></Post>
+            <Post key={review.id} type="review" review={review} handleClickDeletePost={handleClickDeletePost} />
           ))}
           <S.CategoryWrapper>
             <S.CategoryTitle>Quote</S.CategoryTitle>
@@ -90,7 +104,7 @@ function BookPage() {
             />
           )}
           {book?.quotes?.map((quote) => (
-            <Post key={quote.id} type="quote" quote={quote}></Post>
+            <Post key={quote.id} type="quote" quote={quote} handleClickDeletePost={handleClickDeletePost} />
           ))}
         </S.PostWrapper>
       </S.Container>
