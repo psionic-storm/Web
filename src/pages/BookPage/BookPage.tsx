@@ -15,7 +15,9 @@ import { RootState } from 'Modules';
 import PostEditForm from 'Components/PostEditForm/PostEditForm';
 
 function BookPage() {
-  const { book, addedReviewId, addedQuoteId } = useSelector((state: RootState) => state.spaceReducer);
+  const { book, addedReviewId, addedQuoteId, reviewDeletedCount, quoteDeletedCount } = useSelector(
+    (state: RootState) => state.spaceReducer,
+  );
   const dispatch = useDispatch();
   const params = useParams<{ spaceId?: string; salonId?: string; bookId: string }>();
   const spaceId = params.spaceId && parseInt(params.spaceId);
@@ -27,7 +29,7 @@ function BookPage() {
       dispatch(requestGetBookInSpace({ spaceId, bookId }));
       setAddPostType('');
     }
-  }, [bookId, dispatch, spaceId, addedReviewId, addedQuoteId]);
+  }, [bookId, dispatch, spaceId, addedReviewId, addedQuoteId, reviewDeletedCount, quoteDeletedCount]);
 
   const handleClickAddPostBtn = useCallback((e) => {
     if (e.target.classList.contains('review')) {
