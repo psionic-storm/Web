@@ -195,7 +195,7 @@ function* requestDeleteReviewCommentSaga({ payload }: RequestDeleteReviewComment
 function* requestAddQuoteSaga({ payload }: RequestAddQuoteAction) {
   try {
     const response: RequestAddQuoteSuccessActionPayload = yield call(spaceAPI.addQuote, payload);
-    yield put(requestAddQuoteSuccess());
+    yield put(requestAddQuoteSuccess(response));
   } catch (e) {
     yield put(requestAddQuoteFailure(e));
   }

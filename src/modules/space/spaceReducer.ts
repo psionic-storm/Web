@@ -11,6 +11,7 @@ interface SpaceState {
   comments?: Comment[];
   addedBookId?: number;
   addedReviewId?: number;
+  addedQuoteId?: number;
   spaceNameModifiedCount: number;
 }
 
@@ -137,6 +138,7 @@ function spaceReducer(state: SpaceState = initialState, action: SpaceAction): Sp
     case ActionTypes.REQUEST_ADD_QUOTE_SUCCESS:
       return {
         ...state,
+        addedQuoteId: action.payload.addedQuoteId,
       };
     case ActionTypes.REQUEST_ADD_QUOTE_FAILURE:
       return {

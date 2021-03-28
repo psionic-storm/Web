@@ -411,9 +411,10 @@ export function requestAddQuote({ spaceId, bookId, content, page }: RequestAddQu
   };
 }
 
-export function requestAddQuoteSuccess() {
+export function requestAddQuoteSuccess(addedQuoteId: RequestAddQuoteSuccessActionPayload) {
   return <const>{
     type: ActionTypes.REQUEST_ADD_QUOTE_SUCCESS,
+    payload: { addedQuoteId },
   };
 }
 
