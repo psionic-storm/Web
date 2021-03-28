@@ -69,6 +69,16 @@ function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }
     }
   }, [type, quote, review, handleClickEditBtn]);
 
+  const renderAddCommentBtn = useMemo(() => {
+    if (review && review.review_comment_count > 0) {
+      return <S.Button>{`${review?.review_comment_count} Comments`}</S.Button>;
+    }
+    if (quote && quote.quote_comment_count > 0) {
+      return <S.Button>{`${quote?.quote_comment_count} Comments`}</S.Button>;
+    }
+    return <S.Button>Add Comment</S.Button>;
+  }, [quote, review]);
+
   return (
     <S.Container>
       <S.PostHeader>
@@ -93,6 +103,7 @@ function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }
         {type === 'quote' && <S.PostPage>{quote?.page} page</S.PostPage>}
         <S.PostContent>{type === 'review' ? review?.content : quote?.content}</S.PostContent>
       </S.Post>
+      {renderAddCommentBtn}
     </S.Container>
   );
 }
