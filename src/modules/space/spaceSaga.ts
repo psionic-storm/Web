@@ -129,7 +129,7 @@ function* requestDeleteBookSaga({ payload }: RequestDeleteBookAction) {
 function* requestAddReviewSaga({ payload }: RequestAddReviewAction) {
   try {
     const response: RequestAddReviewSuccessActionPayload = yield call(spaceAPI.addReview, payload);
-    yield put(requestAddReviewSuccess());
+    yield put(requestAddReviewSuccess(response));
   } catch (e) {
     yield put(requestAddReviewFailure(e));
   }
