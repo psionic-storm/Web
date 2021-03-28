@@ -17,10 +17,11 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  input, button, textarea,p {
+  input, button, textarea, p {
     background-color: transparent;
     border: none;
     outline: none;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   }
 `;
 

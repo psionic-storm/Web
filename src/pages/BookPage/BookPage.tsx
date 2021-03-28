@@ -22,7 +22,6 @@ function BookPage() {
   }, [bookId, dispatch, spaceId]);
 
   const handleClickAddPostBtn = useCallback((e) => {
-    console.log(e.target.classList);
     if (e.target.classList.contains('review')) {
       setAddPostType('review');
     }

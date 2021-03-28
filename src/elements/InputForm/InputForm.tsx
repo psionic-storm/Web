@@ -8,7 +8,7 @@ interface InputFormProps {
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
-  className: string;
+  className?: string;
 }
 
 function InputForm({ label, placeholder, type, value, onChange, onClick, className }: InputFormProps) {
