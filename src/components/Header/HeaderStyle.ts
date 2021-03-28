@@ -11,6 +11,7 @@ export const Container = styled.div`
   height: 50px;
   position: fixed;
   width: 100%;
+  z-index: 3;
 `;
 
 export const Logo = styled.div`

@@ -68,11 +68,15 @@ export const PostPage = styled.div`
   font-weight: bold;
 `;
 
-export const Button = styled(ButtonEl)`
+export const ButtonWrapper = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
+`;
+
+export const Button = styled(ButtonEl)`
   padding: 4px 8px;
+  margin: 0 4px;
   &:hover {
     background-color: ${PALETTE.GRAY[2]};
   }

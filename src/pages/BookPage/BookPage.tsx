@@ -6,6 +6,8 @@ import {
   requestAddReview as requestAddReviewInSpace,
   requestDeleteReview as requestDeleteReviewInSpace,
   requestDeleteQuote as requestDeleteQuoteInSpace,
+  requestUpdateReview as requestUpdateReviewInSpace,
+  requestUpdateQuote as requestUpdateQuoteInSpace,
   requestGetBook as requestGetBookInSpace,
 } from 'Modules/space/spaceActions';
 import { useParams } from 'react-router';
@@ -23,6 +25,9 @@ function BookPage() {
   const spaceId = params.spaceId && parseInt(params.spaceId);
   const bookId = parseInt(params.bookId);
   const [addPostType, setAddPostType] = useState('');
+  const [editMode, setEditMode] = useState(false);
+  const [editType, setEditType] = useState('');
+  const [editPostId, setEditPostId] = useState(null);
 
   useEffect(() => {
     if (spaceId) {
@@ -68,6 +73,29 @@ function BookPage() {
     [dispatch, bookId, spaceId],
   );
 
+  // const handleClickEditPost = useCallback(
+  //   ({ type, id, title, content, page }) => {
+  //     if (type === 'review' && spaceId) {
+  //       dispatch(requestUpdateReviewInSpace({ spaceId, bookId, reviewId: id, title, content }));
+  //     }
+  //     if (type === 'quote' && spaceId) {
+  //       dispatch(requestUpdateQuoteInSpace({ spaceId, bookId, quoteId: id, page, content }));
+  //     }
+  //   },
+  //   [dispatch, bookId, spaceId],
+  // );
+
+  const handleClickEditBtn = useCallback((type, id) => {
+    setEditMode(true);
+    setEditPostId(id);
+    if (type === 'review') {
+      setEditType('review');
+    }
+    if (type === 'quote') {
+      setEditType('quote');
+    }
+  }, []);
+
   return (
     <>
       <Header />
@@ -89,9 +117,30 @@ function BookPage() {
               handleClickSaveBtn={handleClickSaveBtn}
             />
           )}
-          {book?.reviews?.map((review) => (
-            <Post key={review.id} type="review" review={review} handleClickDeletePost={handleClickDeletePost} />
-          ))}
+          {book?.reviews?.map((review) => {
+            if (editType === 'review' && review.id === editPostId) {
+              return (
+                <PostEditForm
+                  key={review.id}
+                  type="review"
+                  review={review}
+                  handleClickCancelBtn={handleClickCancelBtn}
+                  handleClickSaveBtn={handleClickSaveBtn}
+                ></PostEditForm>
+              );
+            }
+
+            return (
+              <Post
+                key={review.id}
+                type="review"
+                review={review}
+                handleClickDeletePost={handleClickDeletePost}
+                // handleClickEditPost={handleClickEditPost}
+                handleClickEditBtn={handleClickEditBtn}
+              />
+            );
+          })}
           <S.CategoryWrapper>
             <S.CategoryTitle>Quote</S.CategoryTitle>
             <S.Button className="quote" onClick={handleClickAddPostBtn}>
@@ -105,9 +154,29 @@ function BookPage() {
               handleClickSaveBtn={handleClickSaveBtn}
             />
           )}
-          {book?.quotes?.map((quote) => (
-            <Post key={quote.id} type="quote" quote={quote} handleClickDeletePost={handleClickDeletePost} />
-          ))}
+          {book?.quotes?.map((quote) => {
+            if (editType === 'quote' && quote.id === editPostId) {
+              return (
+                <PostEditForm
+                  key={quote.id}
+                  type="quote"
+                  quote={quote}
+                  handleClickCancelBtn={handleClickCancelBtn}
+                  handleClickSaveBtn={handleClickSaveBtn}
+                ></PostEditForm>
+              );
+            }
+            return (
+              <Post
+                key={quote.id}
+                type="quote"
+                quote={quote}
+                handleClickDeletePost={handleClickDeletePost}
+                // handleClickEditPost={handleClickEditPost}
+                handleClickEditBtn={handleClickEditBtn}
+              />
+            );
+          })}
         </S.PostWrapper>
       </S.Container>
     </>

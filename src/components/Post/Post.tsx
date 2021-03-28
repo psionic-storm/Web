@@ -3,17 +3,32 @@ import UserAvatar from 'Elements/svg/UserAvatar/UserAvatar';
 import * as S from './PostStyle';
 import { Review } from 'Types/review';
 import { Quote } from 'Types/quote';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 
 interface PostProps {
   type: 'review' | 'quote';
   review?: Review;
   quote?: Quote;
-  handleClickDeletePost: (type: 'review' | 'quote', reviewId: number) => void;
+  handleClickDeletePost: (type: 'review' | 'quote', id: number) => void;
+  handleClickEditPost?: ({
+    type,
+    id,
+    title,
+    content,
+    page,
+  }: {
+    type: 'review' | 'quote';
+    id: number;
+    title: string;
+    content: string;
+    page: number;
+  }) => void;
+  handleClickEditBtn: (type: 'review' | 'quote', id: number) => void;
 }
 
-function Post({ review, quote, type, handleClickDeletePost }: PostProps) {
+function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }: PostProps) {
   const history = useHistory();
+  const { pathname } = useLocation();
 
   const renderSalonOrSpaceName = useMemo(() => {
     if (type === 'review') {
@@ -44,6 +59,26 @@ function Post({ review, quote, type, handleClickDeletePost }: PostProps) {
     }
   }, [type, review, quote, handleClickDeletePost]);
 
+  // const handleClickEdit = useCallback(() => {
+  //   if (type === 'review' && review) {
+  //     handleClickUpdatePost({type, review.id, });
+  //   }
+
+  //   if (type === 'quote' && quote) {
+  //     handleClickUpdatePost(type, quote.id);
+  //   }
+  // }, [type, review, quote, handleClickDeletePost]);
+
+  const handleClickEdit = useCallback(() => {
+    if (type === 'review' && review) {
+      handleClickEditBtn(type, review.id);
+    }
+
+    if (type === 'quote' && quote) {
+      handleClickEditBtn(type, quote.id);
+    }
+  }, [type, quote, review, handleClickEditBtn]);
+
   return (
     <S.Container>
       <S.PostHeader>
@@ -56,7 +91,12 @@ function Post({ review, quote, type, handleClickDeletePost }: PostProps) {
           </S.WriterInfo>
           <S.CreatedDate>{type === 'review' ? review?.updated_at : quote?.updated_at}</S.CreatedDate>
         </S.PostInfo>
-        <S.Button onClick={handleClickDelete}>X</S.Button>
+        {pathname !== '/square' && (
+          <S.ButtonWrapper>
+            <S.Button onClick={handleClickEdit}>Edit</S.Button>
+            <S.Button onClick={handleClickDelete}>X</S.Button>
+          </S.ButtonWrapper>
+        )}
       </S.PostHeader>
       <S.Post>
         {type === 'review' && <S.PostTitle>{review?.title}</S.PostTitle>}

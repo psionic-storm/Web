@@ -5,7 +5,7 @@ interface InputFormProps {
   label?: string;
   placeholder?: string;
   type?: 'text' | 'number' | 'email' | 'password';
-  value?: string;
+  value?: string | number;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   className?: string;
