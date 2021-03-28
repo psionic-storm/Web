@@ -59,8 +59,12 @@ function BookPage() {
   }, []);
 
   const handleClickCancelBtn = useCallback(() => {
+    if (editMode) {
+      setEditMode(false);
+      return;
+    }
     setAddPostType('');
-  }, []);
+  }, [editMode]);
 
   const handleClickSaveBtn = useCallback(
     ({ type, id, title, page, content }) => {
