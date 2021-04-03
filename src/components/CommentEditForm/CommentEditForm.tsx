@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import * as S from './CommentEditFormStyle';
 
-function CommentEditForm() {
+interface CommentEditFormProps {
+  handleClickCancelComment: () => void;
+  handleClickSaveComment: (comment: string) => void;
+}
+
+function CommentEditForm({ handleClickCancelComment, handleClickSaveComment }: CommentEditFormProps) {
+  const [comment, setComment] = useState('');
+
+  const handleChangeComment = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setComment((e.target as any).value);
+  }, []);
+
   return (
     <S.Container>
-      <S.CommentInputForm />
+      <S.CommentInputForm value={comment} onChange={handleChangeComment} />
       <S.ButtonWrapper>
-        <S.Button>Save</S.Button>
-        <S.Button>Cancel</S.Button>
+        <S.Button onClick={() => handleClickSaveComment(comment)}>Save</S.Button>
+        <S.Button onClick={handleClickCancelComment}>Cancel</S.Button>
       </S.ButtonWrapper>
     </S.Container>
   );

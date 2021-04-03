@@ -3,8 +3,10 @@ import UserAvatar from 'Elements/svg/UserAvatar/UserAvatar';
 import * as S from './PostStyle';
 import { Review } from 'Types/review';
 import { Quote } from 'Types/quote';
-import { useHistory, useLocation } from 'react-router';
+import { useHistory, useLocation, useParams } from 'react-router';
 import CommentEditForm from 'Components/CommentEditForm/CommentEditForm';
+import { useDispatch } from 'react-redux';
+import { requestAddReviewComment } from 'Modules/space/spaceActions';
 
 interface PostProps {
   type: 'review' | 'quote';
@@ -28,8 +30,12 @@ interface PostProps {
 }
 
 function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }: PostProps) {
+  const dispatch = useDispatch();
   const history = useHistory();
   const { pathname } = useLocation();
+  const params = useParams<{ spaceId: string; bookId: string }>();
+  const spaceId = parseInt(params.spaceId);
+  const bookId = parseInt(params.bookId);
   const [editComment, setEditComment] = useState(false);
 
   const renderSalonOrSpaceName = useMemo(() => {
@@ -75,6 +81,19 @@ function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }
     setEditComment(!editComment);
   }, [editComment]);
 
+  const handleClickCancelComment = useCallback(() => {
+    setEditComment(false);
+  }, []);
+
+  const handleClickSaveComment = useCallback(
+    (comment) => {
+      if (type === 'review' && review) {
+        dispatch(requestAddReviewComment({ spaceId, bookId, reviewId: review.id, comment }));
+      }
+    },
+    [dispatch, spaceId, bookId, review, type],
+  );
+
   const renderAddCommentBtn = useMemo(() => {
     if (review && review.review_comment_count > 0) {
       return <S.Button onClick={handleClickAddComment}>{`${review?.review_comment_count} Comments`}</S.Button>;
@@ -110,7 +129,12 @@ function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }
         <S.PostContent>{type === 'review' ? review?.content : quote?.content}</S.PostContent>
       </S.Post>
       {renderAddCommentBtn}
-      {editComment && <CommentEditForm></CommentEditForm>}
+      {editComment && (
+        <CommentEditForm
+          handleClickCancelComment={handleClickCancelComment}
+          handleClickSaveComment={handleClickSaveComment}
+        />
+      )}
     </S.Container>
   );
 }
