@@ -5,7 +5,7 @@ import AvatarList from 'Elements/AvatarList/AvatarList';
 import BookList from 'Components/BookList/BookList';
 import SearchModal from 'Components/SearchModal/SearchModal';
 import Header from 'Components/Header/Header';
-import useModal from 'Hooks/redux/useModal';
+import useModal from 'Hooks/useModal';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestGetSpace, requestUpdateSpace } from 'Modules/space/spaceActions';

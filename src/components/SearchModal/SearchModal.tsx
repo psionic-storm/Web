@@ -2,7 +2,7 @@ import Card from 'Elements/Card/Card';
 import SearchBar from 'Elements/SearchBar/SearchBar';
 import React, { useCallback, useState } from 'react';
 import * as S from './SearchModalStyle';
-import useModal from 'Hooks/redux/useModal';
+import useModal from 'Hooks/useModal';
 import { searchBook } from 'Apis/kakaoBookAPI';
 import { useDispatch } from 'react-redux';
 import { requestAddBook as requestAddBookSpace } from 'Modules/space/spaceActions';

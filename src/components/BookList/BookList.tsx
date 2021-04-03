@@ -1,5 +1,5 @@
 import NoBookImage from 'Elements/svg/NoBookImage/NoBookImage';
-import useModal from 'Hooks/redux/useModal';
+import useModal from 'Hooks/useModal';
 import React, { useCallback } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { Book } from 'Types/book';
