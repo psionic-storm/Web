@@ -1,12 +1,14 @@
 import React, { useMemo, useCallback, useState } from 'react';
 import UserAvatar from 'Elements/svg/UserAvatar/UserAvatar';
+import Comment from 'Components/Comment/Comment';
 import * as S from './PostStyle';
 import { Review } from 'Types/review';
 import { Quote } from 'Types/quote';
 import { useHistory, useLocation, useParams } from 'react-router';
 import CommentEditForm from 'Components/CommentEditForm/CommentEditForm';
-import { useDispatch } from 'react-redux';
-import { requestAddReviewComment } from 'Modules/space/spaceActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { requestAddReviewComment, requestGetAllReviewComments } from 'Modules/space/spaceActions';
+import { RootState } from 'Modules';
 
 interface PostProps {
   type: 'review' | 'quote';
@@ -31,6 +33,7 @@ interface PostProps {
 
 function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }: PostProps) {
   const dispatch = useDispatch();
+  const { comments } = useSelector((state: RootState) => state.spaceReducer);
   const history = useHistory();
   const { pathname } = useLocation();
   const params = useParams<{ spaceId: string; bookId: string }>();
@@ -78,8 +81,15 @@ function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }
   }, [type, quote, review, handleClickEditBtn]);
 
   const handleClickAddComment = useCallback(() => {
-    setEditComment(!editComment);
-  }, [editComment]);
+    if (!editComment) {
+      setEditComment(true);
+      if (type === 'review' && review) {
+        dispatch(requestGetAllReviewComments({ spaceId, bookId, reviewId: review?.id }));
+      }
+      return;
+    }
+    setEditComment(false);
+  }, [editComment, dispatch, spaceId, bookId, review, type]);
 
   const handleClickCancelComment = useCallback(() => {
     setEditComment(false);
@@ -130,10 +140,15 @@ function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }
       </S.Post>
       {renderAddCommentBtn}
       {editComment && (
-        <CommentEditForm
-          handleClickCancelComment={handleClickCancelComment}
-          handleClickSaveComment={handleClickSaveComment}
-        />
+        <>
+          <CommentEditForm
+            handleClickCancelComment={handleClickCancelComment}
+            handleClickSaveComment={handleClickSaveComment}
+          />
+          {comments?.map((comment) => (
+            <Comment key={comment.id} comment={comment} />
+          ))}
+        </>
       )}
     </S.Container>
   );
