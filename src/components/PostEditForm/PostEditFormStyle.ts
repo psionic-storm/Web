@@ -16,6 +16,7 @@ export const TitleInputForm = styled(InputForm)`
     border: 2px solid ${PALETTE.GRAY[2]};
   }
 `;
+
 export const PageInputForm = styled(InputForm)`
   & > input {
     border: 2px solid ${PALETTE.GRAY[2]};

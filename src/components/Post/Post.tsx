@@ -1,9 +1,10 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo, useCallback, useState } from 'react';
 import UserAvatar from 'Elements/svg/UserAvatar/UserAvatar';
 import * as S from './PostStyle';
 import { Review } from 'Types/review';
 import { Quote } from 'Types/quote';
 import { useHistory, useLocation } from 'react-router';
+import CommentEditForm from 'Components/CommentEditForm/CommentEditForm';
 
 interface PostProps {
   type: 'review' | 'quote';
@@ -29,6 +30,7 @@ interface PostProps {
 function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }: PostProps) {
   const history = useHistory();
   const { pathname } = useLocation();
+  const [editComment, setEditComment] = useState(false);
 
   const renderSalonOrSpaceName = useMemo(() => {
     if (type === 'review') {
@@ -69,15 +71,19 @@ function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }
     }
   }, [type, quote, review, handleClickEditBtn]);
 
+  const handleClickAddComment = useCallback(() => {
+    setEditComment(!editComment);
+  }, [editComment]);
+
   const renderAddCommentBtn = useMemo(() => {
     if (review && review.review_comment_count > 0) {
-      return <S.Button>{`${review?.review_comment_count} Comments`}</S.Button>;
+      return <S.Button onClick={handleClickAddComment}>{`${review?.review_comment_count} Comments`}</S.Button>;
     }
     if (quote && quote.quote_comment_count > 0) {
-      return <S.Button>{`${quote?.quote_comment_count} Comments`}</S.Button>;
+      return <S.Button onClick={handleClickAddComment}>{`${quote?.quote_comment_count} Comments`}</S.Button>;
     }
-    return <S.Button>Add Comment</S.Button>;
-  }, [quote, review]);
+    return <S.Button onClick={handleClickAddComment}>{`${editComment ? 'Hide' : 'Add'} Comment`}</S.Button>;
+  }, [quote, review, handleClickAddComment, editComment]);
 
   return (
     <S.Container>
@@ -104,6 +110,7 @@ function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }
         <S.PostContent>{type === 'review' ? review?.content : quote?.content}</S.PostContent>
       </S.Post>
       {renderAddCommentBtn}
+      {editComment && <CommentEditForm></CommentEditForm>}
     </S.Container>
   );
 }
