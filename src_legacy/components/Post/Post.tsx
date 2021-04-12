@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback, useState } from 'react';
+import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import UserAvatar from 'Elements/svg/UserAvatar/UserAvatar';
 import Comment from 'Components/Comment/Comment';
 import * as S from './PostStyle';
@@ -7,7 +7,12 @@ import { Quote } from 'Types/quote';
 import { useHistory, useLocation, useParams } from 'react-router';
 import CommentEditForm from 'Components/CommentEditForm/CommentEditForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { requestAddReviewComment, requestGetAllReviewComments } from 'Modules/space/spaceActions';
+import {
+  requestAddQuoteComment,
+  requestAddReviewComment,
+  requestGetAllQuoteComments,
+  requestGetAllReviewComments,
+} from 'Modules/space/spaceActions';
 import { RootState } from 'Modules';
 
 interface PostProps {
@@ -33,13 +38,24 @@ interface PostProps {
 
 function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }: PostProps) {
   const dispatch = useDispatch();
-  const { comments } = useSelector((state: RootState) => state.spaceReducer);
+  const { comments, reviewCommentAddedCount, quoteCommentAddedCount } = useSelector(
+    (state: RootState) => state.spaceReducer,
+  );
   const history = useHistory();
   const { pathname } = useLocation();
   const params = useParams<{ spaceId: string; bookId: string }>();
   const spaceId = parseInt(params.spaceId);
   const bookId = parseInt(params.bookId);
   const [editComment, setEditComment] = useState(false);
+
+  useEffect(() => {
+    if (type === 'review' && review) {
+      dispatch(requestGetAllReviewComments({ spaceId, bookId, reviewId: review?.id }));
+    }
+    if (type === 'quote' && quote) {
+      dispatch(requestGetAllQuoteComments({ spaceId, bookId, quoteId: quote?.id }));
+    }
+  }, [reviewCommentAddedCount, quoteCommentAddedCount, dispatch, review, quote, spaceId, bookId, type]);
 
   const renderSalonOrSpaceName = useMemo(() => {
     if (type === 'review') {
@@ -86,10 +102,13 @@ function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }
       if (type === 'review' && review) {
         dispatch(requestGetAllReviewComments({ spaceId, bookId, reviewId: review?.id }));
       }
+      if (type === 'quote' && quote) {
+        dispatch(requestGetAllQuoteComments({ spaceId, bookId, quoteId: quote?.id }));
+      }
       return;
     }
     setEditComment(false);
-  }, [editComment, dispatch, spaceId, bookId, review, type]);
+  }, [editComment, dispatch, spaceId, bookId, review, quote, type]);
 
   const handleClickCancelComment = useCallback(() => {
     setEditComment(false);
@@ -100,8 +119,11 @@ function Post({ review, quote, type, handleClickDeletePost, handleClickEditBtn }
       if (type === 'review' && review) {
         dispatch(requestAddReviewComment({ spaceId, bookId, reviewId: review.id, comment }));
       }
+      if (type === 'quote' && quote) {
+        dispatch(requestAddQuoteComment({ spaceId, bookId, quoteId: quote.id, comment }));
+      }
     },
-    [dispatch, spaceId, bookId, review, type],
+    [dispatch, spaceId, bookId, review, quote, type],
   );
 
   const renderAddCommentBtn = useMemo(() => {
