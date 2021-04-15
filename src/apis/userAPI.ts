@@ -13,11 +13,12 @@ export async function signIn({ email, password }: any) {
   return data;
 }
 
-export async function signOut() {
-  const { data } = await psionicStorm.get('/user/signOut');
+// To-do apis 폴더에서 제외해야 함
+export function signOut() {
+  // const { data } = await psionicStorm.get('/user/signOut');
   delete psionicStorm.defaults.headers.common['Authorization'];
   console.log('????');
-  return data;
+  // return data;
 }
 
 export async function getCurrentUser() {
