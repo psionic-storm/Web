@@ -8,12 +8,15 @@ export async function signUp({ email, password, nickname }: any) {
 
 export async function signIn({ email, password }: any) {
   const { data } = await psionicStorm.post('/user/signIn', { email, password });
-
-  psionicStorm.interceptors.request.use((config) => {
-    config.headers.Authorization = `Bearer ${data.accessToken}`;
-    return config;
-  });
+  psionicStorm.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
   console.log(data);
+  return data;
+}
+
+export async function signOut() {
+  const { data } = await psionicStorm.get('/user/signOut');
+  delete psionicStorm.defaults.headers.common['Authorization'];
+  console.log('????');
   return data;
 }
 
