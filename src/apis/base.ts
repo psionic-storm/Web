@@ -15,10 +15,10 @@ export const psionicStorm = Axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
-export const psionicStormAuth = Axios.create({
-  baseURL: apiURL,
-  headers: {
-    'Content-Type': 'application/json',
-    [TOKEN_KEY]: `Bearer asdfafa`,
-  },
-});
+// export const psionicStormAuth = Axios.create({
+//   baseURL: apiURL,
+//   headers: {
+//     'Content-Type': 'application/json',
+//     [TOKEN_KEY]: `Bearer asdfafa`,
+//   },
+// });

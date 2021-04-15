@@ -2,16 +2,23 @@ import { getCurrentUser, signIn, signUp } from 'Apis/userAPI';
 import React, { useEffect, useState } from 'react';
 
 function App() {
-  useEffect(() => {
-    signIn({ email: 'gg@gmail.com', password: 'asdfasdf' });
-  }, []);
-
-  const [state, setState] = useState('');
   function signInCall() {
+    signIn({ email: 'gg11@gmail.com', password: 'asdfasdf' });
+  }
+  function signUpCall() {
+    signUp({ email: 'gg11@gmail.com', password: 'asdfasdf' });
+  }
+  function getUserCall() {
     getCurrentUser();
   }
 
-  return <button onClick={signInCall}>asdfaf</button>;
+  return (
+    <>
+      <button onClick={signInCall}>signIn btn</button>
+      <button onClick={signUpCall}>signUp btn</button>
+      <button onClick={getUserCall}>getUser btn</button>
+    </>
+  );
 }
 
 export default App;

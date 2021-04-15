@@ -13,7 +13,7 @@ export async function signIn({ email, password }: any) {
     config.headers.Authorization = `Bearer ${data.accessToken}`;
     return config;
   });
-
+  console.log(data);
   return data;
 }
 
