@@ -1,5 +1,7 @@
 import { psionicStorm } from './base';
 
+let refresh: any;
+
 export async function signUp({ email, password }: any): Promise<any> {
   try {
     const { data } = await psionicStorm.post('/user/signUp', { email, password });
@@ -13,7 +15,7 @@ export async function signIn({ email, password }: any) {
   try {
     const { data } = await psionicStorm.post('/user/signIn', { email, password });
     psionicStorm.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
-    setTimeout(refreshTokens, 5000);
+    refresh = setTimeout(refreshTokens, 5000);
     return data;
   } catch (error) {
     return error.response.data;
@@ -24,6 +26,7 @@ export async function signIn({ email, password }: any) {
 export function signOut() {
   // const { data } = await psionicStorm.get('/user/signOut');
   delete psionicStorm.defaults.headers.common['Authorization'];
+  clearTimeout(refresh);
   console.log('????');
   // return data;
 }
@@ -31,7 +34,7 @@ export function signOut() {
 export async function refreshTokens() {
   const { data } = await psionicStorm.post('/user/silentRefresh');
   psionicStorm.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
-  setTimeout(refreshTokens, 5000);
+  refresh = setTimeout(refreshTokens, 5000);
 }
 
 export async function getCurrentUser() {
