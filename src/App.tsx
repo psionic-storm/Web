@@ -1,26 +1,57 @@
+import { psionicStorm } from 'Apis/base';
 import { getCurrentUser, signIn, signUp, signOut } from 'Apis/userAPI';
 import React, { useEffect, useState } from 'react';
 
 function App() {
-  function signInCall() {
-    signIn({ email: 'gg11@gmail.com', password: 'asdfasdf' });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [email2, setEmail2] = useState('');
+  const [password2, setPassword2] = useState('');
+  const [message, setMessage] = useState('default');
+
+  async function signInCall() {
+    const data = await signIn({ email: email2, password: password2 });
+    console.log(data);
+    if (data.error) {
+      setMessage(JSON.stringify(data));
+      return;
+    }
+    setMessage('logged in');
   }
-  function signUpCall() {
-    signUp({ email: 'gg11@gmail.com', password: 'asdfasdf' });
+  async function signUpCall() {
+    const data = await signUp({ email, password });
+    console.log(data);
+    setMessage(JSON.stringify(data));
   }
   function signOutCall() {
-    signOut();
+    if (psionicStorm.defaults.headers.common['Authorization']) {
+      signOut();
+      setMessage('log out');
+      return;
+    }
+    setMessage('이미 로그아웃되어 있음');
   }
-  function getUserCall() {
-    getCurrentUser();
+  async function getUserCall() {
+    const data = await getCurrentUser();
+    setMessage(JSON.stringify(data));
   }
 
   return (
     <>
-      <button onClick={signInCall}>signIn btn</button>
+      <p>sign up</p>
+      <input type="text" placeholder="email.." value={email} onChange={(e) => setEmail(e.target.value)} />
+      <input type="password" placeholder="password.." value={password} onChange={(e) => setPassword(e.target.value)} />
       <button onClick={signUpCall}>signUp btn</button>
+      <p>sign in</p>
+      <input type="text" placeholder="email" value={email2} onChange={(e) => setEmail2(e.target.value)} />
+      <input type="text" placeholder="password" value={password2} onChange={(e) => setPassword2(e.target.value)} />
+      <button onClick={signInCall}>signIn btn</button>
+      <br />
       <button onClick={getUserCall}>getUser btn</button>
+      <br />
       <button onClick={signOutCall}>signOut btn</button>
+      <p>{message}</p>
     </>
   );
 }
