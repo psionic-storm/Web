@@ -1,9 +1,9 @@
 module.exports = {
-  preset: 'ts-jest',
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
+  name: 'psionic-storm-test',
+  jest: {
+    verbose: true,
   },
-  testEnvironment: 'node',
-  testMatch: ['**/__tests__/**/*.ts?(x)', '**/?(*.)+(test).ts?(x)'],
-  transformIgnorePatterns: ['/node_modules/'],
+  moduleNameMapper: {
+    '^Apis(.*)$': '<rootDir>/src/apis$1',
+  },
 };
