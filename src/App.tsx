@@ -1,6 +1,7 @@
 import { psionicStorm } from 'Apis/base';
 import { getCurrentUser, signIn, signUp, signOut } from 'Apis/userAPI';
 import Button from 'Elements/Button/Button';
+import GlobalStyle from 'Styles/GlobalStyle';
 import React, { useEffect, useState } from 'react';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
 
   return (
     <>
+      <GlobalStyle />
       <Button>버튼</Button>
       <p>sign up</p>
       <input type="text" placeholder="email.." value={email} onChange={(e) => setEmail(e.target.value)} />

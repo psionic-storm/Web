@@ -1,6 +1,6 @@
 import reset from 'styled-reset';
 import { createGlobalStyle } from 'styled-components';
-import PALETTE from './color-variables';
+import PALETTE from 'Styles/color-variables';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -19,9 +19,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: transparent;
     border: none;
     outline: none;
-  }
-  button {
-    font-size: 14px;
   }
 `;
 
