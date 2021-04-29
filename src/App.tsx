@@ -5,6 +5,7 @@ import { getCurrentUser, signIn, signUp, signOut } from 'Apis/userAPI';
 import Button from 'Elements/Button/Button';
 import Header from 'Elements/Header/Header';
 import GlobalStyle from 'Styles/GlobalStyle';
+import AppRoutes from 'Routes/AppRoutes';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -44,6 +45,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <AppRoutes />
       <Header />
       <Button>버튼</Button>
       <p>sign up</p>

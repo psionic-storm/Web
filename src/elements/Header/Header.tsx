@@ -1,12 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import * as S from './HeaderStyle';
 
 function Header() {
   return (
     <>
       <S.Container>
-        <S.Logo>Psionic Storm</S.Logo>
-        <S.SignInButton>Sign In</S.SignInButton>
+        <Link to="/">
+          <S.Logo>Psionic Storm</S.Logo>
+        </Link>
+        <S.SignInButton linkTo="/sign-in">Sign In</S.SignInButton>
       </S.Container>
       <S.HeaderBlock />
     </>
