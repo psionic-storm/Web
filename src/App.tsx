@@ -1,5 +1,6 @@
 import { psionicStorm } from 'Apis/base';
 import { getCurrentUser, signIn, signUp, signOut } from 'Apis/userAPI';
+import Button from 'Elements/Button/Button';
 import React, { useEffect, useState } from 'react';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <>
+      <Button>버튼</Button>
       <p>sign up</p>
       <input type="text" placeholder="email.." value={email} onChange={(e) => setEmail(e.target.value)} />
       <input type="password" placeholder="password.." value={password} onChange={(e) => setPassword(e.target.value)} />
