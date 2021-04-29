@@ -1,5 +1,6 @@
 import reset from 'styled-reset';
 import { createGlobalStyle } from 'styled-components';
+import PALETTE from 'Styles/'
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -10,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
 
   body{
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background-color: ${PALETTE}
   }
 
   a {
