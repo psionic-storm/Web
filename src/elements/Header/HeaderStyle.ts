@@ -11,6 +11,7 @@ export const Container = styled.div`
   width: 100%;
   background-color: ${PALETTE.WHITE};
   position: fixed;
+  z-index: 3;
 `;
 
 export const Logo = styled.div`
