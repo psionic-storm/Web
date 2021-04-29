@@ -6,6 +6,7 @@ function Header() {
     <>
       <S.Container>
         <S.Logo>Psionic Storm</S.Logo>
+        <S.SignInButton>Sign In</S.SignInButton>
       </S.Container>
       <S.HeaderBlock />
     </>
