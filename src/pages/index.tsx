@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Home() {
-  return <div>Welcome to next</div>;
+function Index() {
+  return <div>this is index</div>;
 }
 
-export default Home;
+export default Index;
