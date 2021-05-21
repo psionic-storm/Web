@@ -12,7 +12,7 @@ function Button({ linkTo, children, ...props }: ButtonProps) {
   return (
     <>
       {linkTo ? (
-        <Link href="linkTo">
+        <Link href={linkTo}>
           <S.Button {...props}>{children}</S.Button>
         </Link>
       ) : (
