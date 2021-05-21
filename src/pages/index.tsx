@@ -1,7 +1,8 @@
+import Header from 'Components/Header/Header';
 import React from 'react';
 
 function Index() {
-  return <div>this is index</div>;
+  return <Header />;
 }
 
 export default Index;
