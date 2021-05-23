@@ -513,13 +513,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/core@npm:^11.0.0":
-  version: 11.0.0
-  resolution: "@emotion/core@npm:11.0.0"
-  checksum: 814026f08ca46fc19f1343c40f733bdfc4ffcfb7dd95f75b89353c987950db90ce181550e3d404784da764af523f3807c2e892c8859c24229789a91225906d34
-  languageName: node
-  linkType: hard
-
 "@emotion/hash@npm:^0.8.0":
   version: 0.8.0
   resolution: "@emotion/hash@npm:0.8.0"
@@ -1340,7 +1333,7 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.14.3
     "@babel/core": ^7.14.3
-    "@emotion/core": ^11.0.0
+    "@emotion/babel-plugin": ^11.3.0
     "@emotion/react": ^11.4.0
     "@emotion/styled": ^11.3.0
     "@reduxjs/toolkit": ^1.5.1
