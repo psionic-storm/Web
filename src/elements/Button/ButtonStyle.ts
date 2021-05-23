@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import PALETTE from 'Styles/color-variables';
 
 export const Button = styled.button`

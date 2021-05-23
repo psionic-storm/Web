@@ -4,12 +4,14 @@
     "dev": "next dev"
   },
   "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
     "@reduxjs/toolkit": "^1.5.1",
     "axios": "^0.21.1",
     "next": "^10.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-is": "^17.0.2",
     "react-query": "^3.16.0",
     "react-redux": "^7.2.4"
   },
