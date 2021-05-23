@@ -26,7 +26,8 @@
       "Components*": ["src/components*"],
       "Apis*": ["src/apis*"],
       "Assets*": ["src/assets*"],
-      "Types*": ["src/types*"]
+      "Types*": ["src/types*"],
+      "Features*": ["src/features*"]
     },
     "forceConsistentCasingInFileNames": true
   },

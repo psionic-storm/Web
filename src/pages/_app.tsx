@@ -1,10 +1,15 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 
+import store from 'Modules';
+import { Provider } from 'react-redux';
+
 function PsionicStormApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }
