@@ -6,7 +6,7 @@ function Header() {
   return (
     <S.Container>
       <S.Logo>Psionic Storm</S.Logo>
-      <Button>adsfadf</Button>
+      <Button>Sign In</Button>
     </S.Container>
   );
 }
