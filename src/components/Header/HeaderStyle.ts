@@ -17,6 +17,7 @@ export const Container = styled.div`
 export const Logo = styled.div`
   font-weight: bold;
   font-size: 18px;
+  cursor: pointer;
 `;
 
 export const HeaderBlock = styled.div`
