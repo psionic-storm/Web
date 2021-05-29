@@ -19,8 +19,8 @@ function TextInput({
 
   return (
     <S.Container {...props}>
-      <S.Label htmlFor="input">{label}</S.Label>
-      <S.Input id="input"
+      <S.Label>{label}</S.Label>
+      <S.Input
         type={type}
         width={width}
         height={height}
