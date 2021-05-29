@@ -9,11 +9,23 @@ interface TextInputProps {
   placeholder?: string;
 }
 
-function TextInput({ type = 'text', label, width = 80, height = 30, placeholder, ...props }: TextInputProps) {
+function TextInput({
+  type = 'text',
+  label,
+  width = 80,
+  height = 30,
+  placeholder,
+  ...props }: TextInputProps) {
+  const a = { b: 3 };
   return (
-    <S.Container>
+    <S.Container {...props}>
       <S.Label htmlFor="input">{label}</S.Label>
-      <S.Input id="input" type={type} width={width} height={height} placeholder={} />
+      <S.Input id="input"
+        type={type}
+        width={width}
+        height={height}
+        placeholder={placeholder}
+      />
     </S.Container>
   );
 }
