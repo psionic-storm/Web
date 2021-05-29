@@ -31,7 +31,7 @@ export default ${FILE_NAME};
 " > src/${FOLDER}/${FILE_NAME}/${FILE_NAME}.tsx`
 
 # styled component file
-echo `echo "import styled from 'styled-components';
+echo `echo "import styled from '@emotion/styled';
 
 ${DEFAULT_STYLED_COMPONENT}
 " > src/${FOLDER}/${FILE_NAME}/${FILE_NAME}Style.ts`
