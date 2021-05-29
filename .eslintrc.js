@@ -19,9 +19,10 @@ module.exports = {
     'comma-dangle': ['error', 'always-multiline'],
     'arrow-parens': [2, 'as-needed', { requireForBlockBody: false }],
     'object-curly-spacing': ['error', 'always'],
-    'key-spacing': ['error', { 'afterColon': true }],
+    'key-spacing': ['error', { 'beforeColon': false, 'afterColon': true }],
     'no-trailing-spaces': ['error', { 'skipBlankLines': false }],
     'no-multiple-empty-lines': ['error', { max: 1 }],
+    'space-infix-ops': 'error',
 
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'off',

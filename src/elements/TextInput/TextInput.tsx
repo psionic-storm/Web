@@ -12,10 +12,11 @@ interface TextInputProps {
 function TextInput({
   type = 'text',
   label,
-  width = 80,
-  height = 30,
+  width = 340,
+  height = 46,
   placeholder,
   ...props }: TextInputProps) {
+
   return (
     <S.Container {...props}>
       <S.Label htmlFor="input">{label}</S.Label>
