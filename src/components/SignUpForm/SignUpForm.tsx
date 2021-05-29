@@ -5,7 +5,10 @@ import * as S from './SignUpFormStyle';
 function SignUpForm() {
   return (
     <S.Container>
-      <TextInput type="text" label="Email" />
+      <TextInput
+        type="text"
+        label="Email"
+      />
     </S.Container>
   );
 }

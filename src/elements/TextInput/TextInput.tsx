@@ -16,7 +16,6 @@ function TextInput({
   height = 30,
   placeholder,
   ...props }: TextInputProps) {
-  const a = { b: 3 };
   return (
     <S.Container {...props}>
       <S.Label htmlFor="input">{label}</S.Label>

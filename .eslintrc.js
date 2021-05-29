@@ -15,7 +15,6 @@ module.exports = {
     semi: ['error', 'always'],
     indent: ['error', 2, { SwitchCase: 1, ignoredNodes: ['TemplateLiteral'] }],
     'no-var': 'error',
-    'no-tabs': 'error',
     'max-len': 'off',
     'comma-dangle': ['error', 'always-multiline'],
     'arrow-parens': [2, 'as-needed', { requireForBlockBody: false }],
@@ -34,5 +33,6 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-max-props-per-line': ['error', { maximum: 1 }],
     'react/jsx-wrap-multilines': 'error',
+    'react/jsx-closing-bracket-location': ['error', 'tag-aligned'],
   },
 };
