@@ -27,6 +27,7 @@ export const reset = css`
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
+		box-sizing: border-box;
 	}
 	/* HTML5 display-role reset for older browsers */
 	article, aside, details, figcaption, figure, 
@@ -35,6 +36,7 @@ export const reset = css`
 	}
 	body {
 		line-height: 1;
+		box-sizing: border-box;
 	}
 	ol, ul {
 		list-style: none;
@@ -50,4 +52,8 @@ export const reset = css`
 	table {
 		border-collapse: collapse;
 		border-spacing: 0;
-	}`;
+	}
+	* {
+		box-sizing: border-box;
+	}
+	`;

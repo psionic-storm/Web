@@ -6,17 +6,37 @@ import * as S from './ButtonStyle';
 interface ButtonProps {
   linkTo?: string;
   children: string | JSX.Element;
+  width?: number;
+  height?: number;
 }
 
-function Button({ linkTo, children, ...props }: ButtonProps) {
+function Button({
+  linkTo,
+  children,
+  width,
+  height,
+  ...props
+}: ButtonProps) {
   return (
     <>
       {linkTo ? (
         <Link href={linkTo}>
-          <S.Button {...props}>{children}</S.Button>
+          <S.Button
+            width={width}
+            height={height}
+            {...props}
+          >
+            {children}
+          </S.Button>
         </Link>
       ) : (
-        <S.Button {...props}>{children}</S.Button>
+        <S.Button
+          width={width}
+          height={height}
+          {...props}
+        >
+          {children}
+        </S.Button>
       )}
     </>
   );

@@ -35,5 +35,6 @@ module.exports = {
     'react/jsx-max-props-per-line': ['error', { maximum: 1 }],
     'react/jsx-wrap-multilines': 'error',
     'react/jsx-closing-bracket-location': ['error', 'tag-aligned'],
+    'react/jsx-tag-spacing': ['error', { beforeSelfClosing: 'always' }],
   },
 };

@@ -4,13 +4,13 @@ import PALETTE from 'Styles/color-variables';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 4px;
 `;
 
 export const Label = styled.label`
   font-size: 16px;
   font-weight: bold;
-  margin: 10px 0 10px 3px;
+  margin: 0 0 10px 3px;
 `;
 
 interface InputProps {
