@@ -9,3 +9,5 @@
 #/.pnp.*
 
 .next
+
+/node_modules
