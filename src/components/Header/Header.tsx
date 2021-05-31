@@ -1,5 +1,5 @@
 import Button from 'Elements/Button/Button';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import React, { useMemo } from 'react';
 import * as S from './HeaderStyle';

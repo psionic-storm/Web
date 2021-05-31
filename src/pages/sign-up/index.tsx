@@ -1,12 +1,16 @@
 import React from 'react';
 import SignUpForm from 'Components/SignUpForm/SignUpForm';
 import * as S from './SignUpPageStyle';
+import Header from 'Components/Header/Header';
 
 function SignUpPage() {
   return (
-    <S.Container>
-      <SignUpForm />
-    </S.Container>
+    <>
+      <Header />
+      <S.Container>
+        <SignUpForm />
+      </S.Container>
+    </>
   );
 }
 

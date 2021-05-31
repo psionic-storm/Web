@@ -67,6 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:17.0.2"],
             ["react-query", "virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:3.16.0"],
             ["react-redux", "virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:7.2.4"],
+            ["storybook-addon-next-router", "virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:2.0.4"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
             ["webpack-merge", "npm:5.7.3"]
           ],
@@ -6542,6 +6543,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:17.0.2"],
             ["react-query", "virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:3.16.0"],
             ["react-redux", "virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:7.2.4"],
+            ["storybook-addon-next-router", "virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:2.0.4"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
             ["webpack-merge", "npm:5.7.3"]
           ],
@@ -18665,6 +18667,44 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/store2-npm-2.12.0-79733c8c4f-517b66b6be.zip/node_modules/store2/",
           "packageDependencies": [
             ["store2", "npm:2.12.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["storybook-addon-next-router", [
+        ["npm:2.0.4", {
+          "packageLocation": "./.yarn/cache/storybook-addon-next-router-npm-2.0.4-f70c1e7712-b57b760bae.zip/node_modules/storybook-addon-next-router/",
+          "packageDependencies": [
+            ["storybook-addon-next-router", "npm:2.0.4"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:2.0.4", {
+          "packageLocation": "./.yarn/$$virtual/storybook-addon-next-router-virtual-1577de9084/0/cache/storybook-addon-next-router-npm-2.0.4-f70c1e7712-b57b760bae.zip/node_modules/storybook-addon-next-router/",
+          "packageDependencies": [
+            ["storybook-addon-next-router", "virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:2.0.4"],
+            ["@storybook/addon-actions", "virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:6.2.9"],
+            ["@storybook/addons", null],
+            ["@types/next", null],
+            ["@types/react", "npm:17.0.6"],
+            ["@types/react-dom", "npm:17.0.5"],
+            ["@types/storybook__addon-actions", null],
+            ["@types/storybook__addons", null],
+            ["next", "virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:10.2.2"],
+            ["react", "npm:17.0.2"],
+            ["react-dom", "virtual:0ab1d73443ac97151255a7f746b689b67e51b86a0b5daef1f0cc95d2216d94fd03df8c4be82771ef4f4566e52687a89fb2e6720fe9f38357d24fe81e9dccc419#npm:17.0.2"]
+          ],
+          "packagePeers": [
+            "@storybook/addon-actions",
+            "@storybook/addons",
+            "@types/next",
+            "@types/react-dom",
+            "@types/react",
+            "@types/storybook__addon-actions",
+            "@types/storybook__addons",
+            "next",
+            "react-dom",
+            "react"
           ],
           "linkType": "HARD",
         }]

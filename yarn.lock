@@ -4113,6 +4113,7 @@ __metadata:
     react-dom: ^17.0.2
     react-query: ^3.16.0
     react-redux: ^7.2.4
+    storybook-addon-next-router: ^2.0.4
     typescript: ^4.2.4
     webpack-merge: ^5.7.3
   languageName: unknown
@@ -14403,6 +14404,19 @@ resolve@^2.0.0-next.3:
   version: 2.12.0
   resolution: "store2@npm:2.12.0"
   checksum: 517b66b6bed513668b10310b08980e722a919fa8b818262480c5f975575377aedfc40d9bd5de8b2ea0e05d82a830c8664273b1a8bd6169a1ff5020e18db9f88d
+  languageName: node
+  linkType: hard
+
+"storybook-addon-next-router@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "storybook-addon-next-router@npm:2.0.4"
+  peerDependencies:
+    "@storybook/addon-actions": ^6.0.0
+    "@storybook/addons": ^6.0.0
+    next: ^9.0.0 || ^10.0.0
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: b57b760bae410ebed2e943d9a42399aca6fd3465109aa030150d17e978af9724651bc6bc5a9ce144c65523292d3f546e244315d9dc0659ec801469b507cf8274
   languageName: node
   linkType: hard
 
