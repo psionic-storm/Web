@@ -2,7 +2,7 @@
   "name": "Web",
   "scripts": {
     "dev": "next dev",
-    "sb": "start-storybook",
+    "sb": "start-storybook -p 5000",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
