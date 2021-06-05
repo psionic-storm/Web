@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import SignUp from 'Pages/sign-up';
+import { SignUpPage } from 'Pages/sign-up';
 
 export default {
   title: 'Pages/SignUp',
@@ -10,6 +10,6 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => <SignUp {...args}></SignUp>;
+const Template: Story = args => <SignUpPage {...args}></SignUpPage>;
 
 export const Base = Template.bind({});
