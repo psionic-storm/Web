@@ -2,20 +2,20 @@ import { psionicStorm } from './baseAPI';
 
 let refresh: any;
 
-export async function signUp({ email, password }: any): Promise<any> {
+async function signUp({ email, password }: any): Promise<any> {
   try {
-    const { data } = await psionicStorm.post('/user/signUp', { email, password });
+    const { data } = await psionicStorm.post('/user/sign-up', { email, password });
     return data;
   } catch (error) {
     return error.response.data;
   }
 }
 
-export async function signIn({ email, password }: any) {
+async function signIn({ email, password }: any) {
   try {
-    const { data } = await psionicStorm.post('/user/signIn', { email, password });
-    psionicStorm.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
-    refresh = setTimeout(refreshTokens, 5000);
+    const { data } = await psionicStorm.post('/user/sign-in', { email, password });
+    // psionicStorm.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
+    // refresh = setTimeout(refreshTokens, 5000);
     return data;
   } catch (error) {
     return error.response.data;
@@ -23,7 +23,7 @@ export async function signIn({ email, password }: any) {
 }
 
 // To-do apis 폴더에서 제외해야 함
-export function signOut() {
+function signOut() {
   // const { data } = await psionicStorm.get('/user/signOut');
   delete psionicStorm.defaults.headers.common['Authorization'];
   clearTimeout(refresh);
@@ -31,13 +31,13 @@ export function signOut() {
   // return data;
 }
 
-export async function refreshTokens() {
-  const { data } = await psionicStorm.post('/user/silentRefresh');
+async function refreshTokens():Promise<any> {
+  const { data } = await psionicStorm.post('/user/silent-refresh');
   psionicStorm.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
-  refresh = setTimeout(refreshTokens, 5000);
+  refresh = setTimeout(refreshTokens, 10000);
 }
 
-export async function getCurrentUser() {
+async function getCurrentUser() {
   try {
     const { data } = await psionicStorm.get('/user');
     return data;
@@ -45,3 +45,11 @@ export async function getCurrentUser() {
     return error.response.data;
   }
 }
+
+export default {
+  signUp,
+  signIn,
+  signOut,
+  refreshTokens,
+  getCurrentUser,
+};
