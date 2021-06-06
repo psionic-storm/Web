@@ -21,7 +21,7 @@ async function signUp({ email, password }: SignUpParams): Promise<SignUpResponse
 
 type SignInParams = SignUpParams;
 
-interface SignInResponse {
+interface SignInResponse extends User {
   accessToken: string;
 }
 
