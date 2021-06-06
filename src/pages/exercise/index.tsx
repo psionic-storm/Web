@@ -9,7 +9,7 @@ function Exercise() {
   console.log('렌더가 몇 번 되나요?');
   const dispatch = useAppDispatch();
 
-  const { mutate: mutateSignIn, data: user, reset } = useMutation('user', userAPI.signIn, {
+  const { mutate: mutateSignIn, data: user, reset } = useMutation(userAPI.signIn, {
     onSuccess: data => {
       dispatch(signIn(data));
     },
