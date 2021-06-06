@@ -27,7 +27,7 @@ function Exercise() {
     onError: () => {
       alert('there was an error');
     },
-    enabled: user.isSignedIn,
+    enabled: user.isSignedIn && !user.id,
   });
 
   function onLogin(): void {
