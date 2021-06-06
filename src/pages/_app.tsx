@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
-import store from 'Modules';
+import store from 'src/slices';
 import GlobalStyle from 'Styles/GlobalStyle';
 
 const queryClient = new QueryClient();
