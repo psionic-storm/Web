@@ -18,7 +18,7 @@ module.exports = {
     'max-len': 'off',
     'space-infix-ops': 'error',
     'comma-dangle': ['error', 'always-multiline'],
-    'arrow-parens': [2, 'as-needed', { requireForBlockBody: false }],
+    'arrow-parens': 'off',
     'object-curly-spacing': ['error', 'always'],
     'key-spacing': ['error', { 'beforeColon': false, 'afterColon': true }],
     'no-trailing-spaces': ['error', { 'skipBlankLines': false }],
@@ -28,6 +28,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-unused-expressions': 'error',
     '@typescript-eslint/no-shadow': 'error',
+    '@typescript-eslint/type-annotation-spacing': 'error',
 
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',

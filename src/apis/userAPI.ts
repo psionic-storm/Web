@@ -1,40 +1,54 @@
+import { User } from 'Types/user';
 import { psionicStorm } from './baseAPI';
 
-let refresh: any;
+let refreshTimeoutId: ReturnType<typeof setTimeout>;
 
-async function signUp({ email, password }: any): Promise<any> {
+interface SignUpParams {
+  email: string;
+  password: string;
+}
+
+type SignUpResponse = User;
+
+async function signUp({ email, password }: SignUpParams): Promise<SignUpResponse> {
   try {
-    const { data } = await psionicStorm.post('/user/sign-up', { email, password });
+    const { data } = await psionicStorm.post<SignUpResponse>('/user/sign-up', { email, password });
     return data;
   } catch (error) {
     return error.response.data;
   }
 }
 
-async function signIn({ email, password }: any) {
+type SignInParams = SignUpParams;
+
+interface SignInResponse {
+  accessToken: string;
+}
+
+async function signIn({ email, password }: SignInParams): Promise<SignInResponse> {
   try {
     const { data } = await psionicStorm.post('/user/sign-in', { email, password });
-    // psionicStorm.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
-    // refresh = setTimeout(refreshTokens, 5000);
+
+    psionicStorm.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
+    refreshTimeoutId = setTimeout(refreshAccessTokens, 5000);
+
     return data;
   } catch (error) {
     return error.response.data;
   }
 }
 
-// To-do apis 폴더에서 제외해야 함
-function signOut() {
-  // const { data } = await psionicStorm.get('/user/signOut');
+// API 호출을 위한 함수는 아니지만, signIn과 나란히 두기 위해 여기에 배치
+function signOut(): void {
   delete psionicStorm.defaults.headers.common['Authorization'];
-  clearTimeout(refresh);
-  console.log('????');
-  // return data;
+  clearTimeout(refreshTimeoutId);
+  console.log('로그아웃 되었습니다');
 }
 
-async function refreshTokens():Promise<any> {
+async function refreshAccessTokens(): Promise<void> {
   const { data } = await psionicStorm.post('/user/silent-refresh');
   psionicStorm.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
-  refresh = setTimeout(refreshTokens, 10000);
+  refreshTimeoutId = setTimeout(refreshAccessTokens, 10000);
 }
 
 async function getCurrentUser() {
@@ -50,6 +64,6 @@ export default {
   signUp,
   signIn,
   signOut,
-  refreshTokens,
+  refreshAccessTokens,
   getCurrentUser,
 };
