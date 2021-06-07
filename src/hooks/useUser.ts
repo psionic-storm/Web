@@ -49,7 +49,7 @@ function useUser() {
       router.push('/');
     }
     mutateSignIn({ email, password });
-  }, [mutateSignIn, signInData, isSignInSuccess, router,dispatch]);
+  }, [mutateSignIn, signInData, isSignInSuccess, router, dispatch]);
 
   const handleSignOut = useCallback(() => {
     userAPI.signOut();
