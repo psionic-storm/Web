@@ -8,11 +8,16 @@ interface SignUpParams {
   password: string;
 }
 
-type SignUpResponse = User;
-
+interface SignUpResponse extends User {
+  accessToken: string;
+}
 async function signUp({ email, password }: SignUpParams): Promise<SignUpResponse> {
   try {
     const { data } = await psionicStorm.post<SignUpResponse>('/user/sign-up', { email, password });
+
+    psionicStorm.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
+    refreshTimeoutId = setTimeout(refreshAccessTokens, 5000);
+
     return data;
   } catch (error) {
     return error.response.data;
@@ -21,9 +26,7 @@ async function signUp({ email, password }: SignUpParams): Promise<SignUpResponse
 
 type SignInParams = SignUpParams;
 
-interface SignInResponse extends User {
-  accessToken: string;
-}
+type SignInResponse = SignUpResponse;
 
 async function signIn({ email, password }: SignInParams): Promise<SignInResponse> {
   try {

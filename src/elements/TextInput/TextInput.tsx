@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import * as S from './TextInputStyle';
 
 interface TextInputProps {
@@ -7,6 +7,8 @@ interface TextInputProps {
   width?: number;
   height?: number;
   placeholder?: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 function TextInput({
@@ -15,6 +17,8 @@ function TextInput({
   width = 340,
   height = 46,
   placeholder,
+  value,
+  onChange,
   ...props }: TextInputProps) {
 
   return (
@@ -25,6 +29,8 @@ function TextInput({
         width={width}
         height={height}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
       />
     </S.Container>
   );

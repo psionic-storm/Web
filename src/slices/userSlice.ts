@@ -16,6 +16,10 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    signUp: (state, action) => {
+      Object.assign(state, action.payload);
+      state.isSignedIn = true;
+    },
     signIn: (state, action) => {
       Object.assign(state, action.payload);
       state.isSignedIn = true;
@@ -29,6 +33,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { signIn, signOut, getCurrentUser } = userSlice.actions;
+export const { signUp, signIn, signOut, getCurrentUser } = userSlice.actions;
 
 export default userSlice.reducer;
