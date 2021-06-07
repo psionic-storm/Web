@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import userAPI from 'Apis/userAPI';
 import { useMutation } from 'react-query';
-import { signOut, signUp } from 'Slices/userSlice';
+import { signOut, signUp, signIn } from 'Slices/userSlice';
 import { useAppDispatch, useAppSelector } from 'Hooks/redux';
 import { useRouter } from 'next/router';
 
@@ -29,7 +29,7 @@ function useUser() {
   } = useMutation(userAPI.signIn, {
     onSuccess: data => {
       if (data.id) {
-        dispatch(signUp(data));
+        dispatch(signIn(data));
         router.push('/');
       }
     },
