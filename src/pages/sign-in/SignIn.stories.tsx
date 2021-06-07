@@ -1,15 +1,15 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import Index from 'Pages';
+import SignInPage from 'Pages/sign-in';
 
 export default {
-  title: 'pages/Index',
-  component: Index,
+  title: 'pages/SignIn',
+  page: SignInPage,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
 } as Meta;
 
-const Template: Story = args => <Index {...args}></Index>;
+const Template: Story = args => <SignInPage {...args}></SignInPage>;
 
 export const Base = Template.bind({});

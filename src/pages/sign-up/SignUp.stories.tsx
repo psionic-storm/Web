@@ -1,10 +1,10 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { SignUpPage } from 'Pages/sign-up';
+import SignUpPage from 'Pages/sign-up';
 
 export default {
   title: 'Pages/SignUp',
-  component: SignUp,
+  page: SignUpPage,
   argTypes: {
     backgroundColor: { control: 'color' },
   },

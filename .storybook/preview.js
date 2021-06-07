@@ -1,6 +1,10 @@
-import GlobalStyle from '../src/styles/GlobalStyle.tsx'
+import GlobalStyle from 'Styles/GlobalStyle.tsx'
 import { withNextRouter } from 'storybook-addon-next-router';
 import { addDecorator } from '@storybook/react';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import userReducer from 'Slices/userSlice';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -12,12 +16,22 @@ export const parameters = {
   },
 }
 
+const queryClient = new QueryClient();
+
+const mockStore = configureStore({
+  reducer: {
+    user: userReducer,
+  },
+});
+
 export const decorators = [
   (Story) => (
-    <>
-      <GlobalStyle />
-      <Story />
-    </>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={mockStore}>
+          <GlobalStyle />
+          <Story />
+        </Provider>
+      </QueryClientProvider>
   ),
 ];
 
