@@ -13,11 +13,12 @@ function useUser() {
   const {
     data: signUpData,
     mutate: mutateSignUp,
-    isSuccess: isSignUpSuccess,
   } = useMutation(userAPI.signUp, {
     onSuccess: data => {
-      dispatch(signUp(data));
-      router.push('/');
+      if (data.id) {
+        dispatch(signUp(data));
+        router.push('/');
+      }
     },
     onError: () => {
       alert('signup error');
@@ -27,8 +28,13 @@ function useUser() {
   const {
     data: signInData,
     mutate: mutateSignIn,
-    isSuccess: isSignInSuccess,
   } = useMutation(userAPI.signIn, {
+    onSuccess: data => {
+      if (data.id) {
+        dispatch(signUp(data));
+        router.push('/');
+      }
+    },
     onError: () => {
       alert('signin error');
     },
@@ -36,25 +42,16 @@ function useUser() {
 
   const handleSignUp = useCallback(({ email, password }) => {
     mutateSignUp({ email, password });
-
-    if (isSignUpSuccess) {
-      dispatch(signUp(signUpData));
-      router.push('/');
-    }
-  }, [mutateSignUp, signUpData, isSignUpSuccess, router, dispatch]);
+  }, [mutateSignUp]);
 
   const handleSignIn = useCallback(({ email, password }) => {
-    if (isSignInSuccess) {
-      dispatch(signIn(signInData));
-      router.push('/');
-    }
     mutateSignIn({ email, password });
-  }, [mutateSignIn, signInData, isSignInSuccess, router, dispatch]);
+  }, [mutateSignIn]);
 
   const handleSignOut = useCallback(() => {
     userAPI.signOut();
     dispatch(signOut());
-  }, [dispatch, reset]);
+  }, [dispatch]);
 
   // const handleGetCurrentUser = useCallback(({ email, password }) => {
   //   mutateSignUp({ email, password });
