@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import userAPI from 'Apis/userAPI';
 import { useMutation } from 'react-query';
-import { getCurrentUser, signIn, signOut, signUp } from 'Slices/userSlice';
+import { signOut, signUp } from 'Slices/userSlice';
 import { useAppDispatch, useAppSelector } from 'Hooks/redux';
 import { useRouter } from 'next/router';
 
