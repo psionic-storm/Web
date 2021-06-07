@@ -22,6 +22,7 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'key-spacing': ['error', { 'beforeColon': false, 'afterColon': true }],
     'comma-spacing': ['error', { 'before': false, 'after': true }],
+    'space-after-keywords': 'error',
     'no-trailing-spaces': ['error', { 'skipBlankLines': false }],
     'no-multiple-empty-lines': ['error', { max: 1 }],
     '@typescript-eslint/no-explicit-any': 'error',
