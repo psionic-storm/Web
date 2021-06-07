@@ -11,7 +11,6 @@ function useUser() {
   const router = useRouter();
 
   const {
-    data: signUpData,
     mutate: mutateSignUp,
   } = useMutation(userAPI.signUp, {
     onSuccess: data => {
@@ -26,7 +25,6 @@ function useUser() {
   });
 
   const {
-    data: signInData,
     mutate: mutateSignIn,
   } = useMutation(userAPI.signIn, {
     onSuccess: data => {
