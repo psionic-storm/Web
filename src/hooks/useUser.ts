@@ -13,6 +13,7 @@ function useUser() {
   const {
     mutate: mutateSignUp,
   } = useMutation(userAPI.signUp, {
+    mutationKey: 'signUp',
     onSuccess: data => {
       if (data.id) {
         dispatch(signUp(data));
@@ -27,6 +28,7 @@ function useUser() {
   const {
     mutate: mutateSignIn,
   } = useMutation(userAPI.signIn, {
+    mutationKey: 'signIn',
     onSuccess: data => {
       if (data.id) {
         dispatch(signIn(data));
