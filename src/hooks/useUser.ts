@@ -64,6 +64,7 @@ function useUser() {
     handleSignUp,
     handleSignIn,
     handleSignOut,
+    handleGetCurrentUser,
   };
 }
 
