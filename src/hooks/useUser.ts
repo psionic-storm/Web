@@ -53,11 +53,10 @@ function useUser() {
     dispatch(signOut());
   }, [dispatch]);
 
-  // const handleGetCurrentUser = useCallback(({ email, password }) => {
-  //   mutateSignUp({ email, password });
-  //   router.push('/');
-
-  // }, [mutateSignUp, router]);
+  const handleGetCurrentUser = useCallback(async () => {
+    const currentUser = await userAPI.getCurrentUser();
+    return currentUser;
+  }, []);
 
   return {
     user,
