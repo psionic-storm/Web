@@ -3,4 +3,8 @@ module.exports = {
   moduleNameMapper: {
     '^Apis(.*)$': '<rootDir>/src/apis$1',
   },
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
+    './jest.setup.js',
+  ],
 };

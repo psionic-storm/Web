@@ -4,5 +4,6 @@ import Button from './Button';
 
 test('should show login form', () => {
   render(<Button>버튼</Button>);
-  const input = screen.getByText('Username');
+  const input = screen.getByText('버튼');
+  expect(input).toBeTruthy();
 });
